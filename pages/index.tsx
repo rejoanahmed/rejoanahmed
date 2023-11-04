@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <div className='flex flex-col justify-center items-center h-screen bg-slate-400  text-white'>
       <Link href='/projects/todoMapbox'>
-        <h1 className='font-bold text-3xl'>TODO MAPBOX</h1>
+        <h1 className='font-bold text-3xl'>Portfolio page</h1>
       </Link>
     </div>
   )
