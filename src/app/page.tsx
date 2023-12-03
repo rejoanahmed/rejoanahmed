@@ -3,18 +3,17 @@ import { useState } from 'react'
 
 export default function Home() {
   return (
-    <main className='prose xl:prose-lg dark:prose-invert'>
+    <main>
       <h2 className=''>hey, I&apos;m rejoan 👋</h2>
       <p className=''>
-        I&apos;m a Part-time freelancer, full-stack maestro. Crafting digital
-        experiences with precision. Fluent in front-end finesse, back-end
-        wizardry. Let&apos;s turn ideas into code magic. I love{' '}
+        I&apos;m a Part-time freelancer, full-stack maestro.I am obsessed with
+        crafting digital experiences with precision. I love{' '}
         <Image
           src='/next.svg'
           alt='Next.js Logo'
           width={60}
           height={10}
-          className='inline-block not-prose mb-1'
+          className='inline-block not-prose mb-1 dark:bg-slate-400 dark:p-1 dark:rounded'
         />{' '}
         and{' '}
         <Image
@@ -24,7 +23,7 @@ export default function Home() {
           height={10}
           className='inline-block not-prose mb-1'
         />{' '}
-        tailwindCSS.
+        tailwindCSS. Let&apos;s turn ideas into code magic.
       </p>
     </main>
   )
