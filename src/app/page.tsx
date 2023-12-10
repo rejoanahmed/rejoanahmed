@@ -8,7 +8,9 @@ export default function Home() {
     <main>
       <div className='flex justify-between sm:gap-8 flex-wrap-reverse items-end -mt-8'>
         <div className='shrink-0 basis-72 grow p-0'>
-          <h2>hey, I&apos;m rejoan 👋</h2>
+          <h2 className='tracking-tighter font-medium'>
+            hey, I&apos;m rejoan 👋
+          </h2>
           <p className='text-justify'>
             I am a full stack developer with a passion for developing quality
             software. I have a strong passion for social impact and global
@@ -16,7 +18,7 @@ export default function Home() {
             web applications using <span className={SkillClassName}>HTML</span>,{' '}
             <span className={SkillClassName}>CSS</span>,{' '}
             <span className={SkillClassName}>Typescript</span>, and various
-            frameworks, such as <span className={SkillClassName}>React</span>,
+            frameworks, such as <span className={SkillClassName}>React</span>,{' '}
             <span className={SkillClassName}>Next JS</span>, and{' '}
             <span className={SkillClassName}>React Native</span>.
           </p>

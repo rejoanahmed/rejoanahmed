@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import Navbar from './Navbar'
 import { ThemeProvider } from './theme-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Nunito_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Rejoan Ahmed',
@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-gray-900 min-h-screen min-w-full'
+          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-[#111010] min-h-screen min-w-full'
         }
       >
         <div className='max-w-4xl mx-auto'>
