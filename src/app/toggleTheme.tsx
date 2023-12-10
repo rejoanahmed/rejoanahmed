@@ -53,7 +53,7 @@ function ToggleTheme() {
         <input
           type='checkbox'
           className='toggle dark:[--tglbg:black]
-          [--tglbg:gray] bg-slate-300 toggle-warning'
+          toggle-warning'
           checked={resolvedTheme === 'dark'}
           onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
         />
