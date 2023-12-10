@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const SkillClassName = 'text-gray-900 font-semibold'
+const SkillClassName = 'text-gray-900 font-semibold dark:text-gray-100'
 
 export default function Home() {
   return (

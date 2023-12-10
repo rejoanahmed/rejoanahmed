@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './Navbar'
+import { ThemeProvider } from './theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,12 +33,15 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' max-w-4xl p-10 mx-auto prose xl:prose-lg dark:prose-invert'
+          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-gray-900 min-h-screen min-w-full'
         }
       >
-        <Navbar />
-
-        {children}
+        <div className='max-w-4xl mx-auto'>
+          <ThemeProvider>
+            <Navbar />
+            {children}
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   )

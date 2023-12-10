@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import ToggleTheme from './toggleTheme'
 
 const links = [
   { href: '/', label: 'home' },
@@ -14,6 +15,7 @@ const Navbar = () => {
   const pathname = usePathname()
   return (
     <nav className='flex gap-4 justify-start mb-8'>
+      <ToggleTheme />
       {links.map(({ href, label }) => (
         <Link
           key={href}
