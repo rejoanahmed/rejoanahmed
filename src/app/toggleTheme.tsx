@@ -5,13 +5,16 @@ import { useEffect, useState } from 'react'
 
 function ToggleTheme() {
   const [mounted, setMounted] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
-  console.log(resolvedTheme)
+  const { setTheme, resolvedTheme, systemTheme } = useTheme()
   useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!mounted) {
+    return null
+  }
+
+  if (systemTheme === 'dark') {
     return null
   }
 
@@ -55,7 +58,9 @@ function ToggleTheme() {
           className='toggle dark:[--tglbg:black]
           toggle-warning'
           checked={resolvedTheme === 'dark'}
-          onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+          onChange={(e) => {
+            setTheme(e.target.checked ? 'dark' : 'light')
+          }}
         />
       </label>
     </div>

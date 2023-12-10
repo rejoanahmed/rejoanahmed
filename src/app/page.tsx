@@ -22,15 +22,13 @@ export default function Home() {
           </p>
         </div>
 
-        <div className='w-60 h-60 shrink-0 grow sm:grow-0 flex justify-center items-center pt-16'>
-          <Image
-            src='/me/4.png'
-            width={200}
-            height={200}
-            alt='Rejoan Ahmed'
-            className='rounded-full border-b-4 border-pink-500 block sm:mt-10 gradient-container shadow-xl'
-          />
-        </div>
+        <Image
+          src='/me/4.png'
+          width={180}
+          height={150}
+          alt='Rejoan Ahmed'
+          className='rounded-full border-b-4 border-pink-500 block gradient-container shadow-xl w-auto h-auto my-0 mt-8 mx-auto'
+        />
       </div>
     </main>
   )
