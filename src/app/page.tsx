@@ -23,6 +23,7 @@ export default function Home() {
         </div>
 
         <Image
+          priority
           src='/me/4.png'
           width={180}
           height={150}
