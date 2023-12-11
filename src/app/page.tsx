@@ -7,6 +7,29 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 const SkillClassName =
   'text-gray-900 font-semibold dark:text-gray-100 underline'
 
+const SOCAIL_LINKS = [
+  {
+    name: 'Github',
+    url: 'https://github.com/rejoanahmed',
+    icon: GitHubIcon
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/rexcode_',
+    icon: TwitterIcon
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/md-rejoan-ahmed-737621138/',
+    icon: LinkedInIcon
+  },
+  {
+    name: 'Email',
+    url: 'mailto:rejoanahmed8@gmail.com',
+    icon: ContactMailIcon
+  }
+]
+
 export default function Home() {
   return (
     <main>
@@ -44,6 +67,9 @@ export default function Home() {
       <LinkedInIcon />
       <TwitterIcon />
       <ContactMailIcon />
+      {SOCAIL_LINKS.map((l, i) => (
+        <l.icon key={i} />
+      ))}
     </main>
   )
 }
