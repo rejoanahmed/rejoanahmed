@@ -73,12 +73,12 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
       height: 0
     }
     // check if window is defined
-    if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
+    // if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
 
-    const windowWidth = window.innerWidth
-    if (windowWidth <= 640) {
-      return val - bounds.y - bounds.height / 2
-    }
+    // const windowWidth = window.innerWidth
+    // if (windowWidth <= 640) {
+    //   return val - bounds.y - bounds.height / 2
+    // }
 
     return val - bounds.x - bounds.width / 2
   })

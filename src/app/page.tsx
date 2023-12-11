@@ -63,13 +63,13 @@ export default function Home() {
           <ContactList />
         </div>
       </div>
-      <GitHubIcon />
+      {/* <GitHubIcon />
       <LinkedInIcon />
       <TwitterIcon />
       <ContactMailIcon />
       {SOCAIL_LINKS.map((l, i) => (
         <l.icon key={i} />
-      ))}
+      ))} */}
     </main>
   )
 }
