@@ -4,6 +4,8 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
+import IconButton from '@mui/material/IconButton'
+
 import Link from 'next/link'
 const SkillClassName =
   'text-gray-900 font-semibold dark:text-gray-100 underline'
@@ -64,31 +66,30 @@ export default function Home() {
           <ContactList />
         </div>
       </div>
-      <GitHubIcon />
+      {/* <GitHubIcon />
       <LinkedInIcon />
       <TwitterIcon />
       <ContactMailIcon />
       {SOCAIL_LINKS.map((l, i) => (
         <div
           key={i}
-          className='aspect-square w-10 rounded-full bg-gray-400 hover:bg-gray-200 hover:shadow-xl shadow-purple-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300'
+          className='aspect-square w-10 rounded-full p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300'
         >
-          <Link
-            href={l.url}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='flex items-center justify-center h-full'
-          >
-            <l.icon
-              className='text-gray-900'
-              sx={{
-                width: 'auto',
-                height: 'auto'
-              }}
-            />
-          </Link>
+          <IconButton size='large'>
+            <Link
+              href={l.url}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center justify-center h-full'
+            >
+              <l.icon
+                fontSize='large'
+                className='text-black hover:text-pink-500'
+              />
+            </Link>
+          </IconButton>
         </div>
-      ))}
+      ))} */}
     </main>
   )
 }

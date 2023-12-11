@@ -13,6 +13,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import { useWindowSize } from '@/hooks.ts'
+import IconButton from '@mui/material/IconButton'
 
 const SOCAIL_LINKS = [
   {
@@ -73,12 +74,12 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
       height: 0
     }
     // check if window is defined
-    // if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
+    if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
 
-    // const windowWidth = window.innerWidth
-    // if (windowWidth <= 640) {
-    //   return val - bounds.y - bounds.height / 2
-    // }
+    const windowWidth = window.innerWidth
+    if (windowWidth <= 640) {
+      return val - bounds.y - bounds.height / 2
+    }
 
     return val - bounds.x - bounds.width / 2
   })
@@ -91,22 +92,24 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className='aspect-square w-10 rounded-full bg-gray-400 hover:bg-gray-200 hover:shadow-xl shadow-purple-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300'
+      className='aspect-square w-10 rounded-full hover:shadow-xl bg-slate-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300 text-black hover:text-pink-500'
     >
-      <Link
-        href={link.url}
-        target='_blank'
-        rel='noopener noreferrer'
-        className='flex items-center justify-center h-full'
+      <IconButton
+        sx={{
+          width: '100%',
+          height: '100%',
+          color: 'inherit'
+        }}
       >
-        <link.icon
-          className='text-gray-900'
-          sx={{
-            width: 'auto',
-            height: 'auto'
-          }}
-        />
-      </Link>
+        <Link
+          href={link.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-inherit'
+        >
+          <link.icon className='text-inherit' />
+        </Link>
+      </IconButton>
     </motion.div>
   )
 }
