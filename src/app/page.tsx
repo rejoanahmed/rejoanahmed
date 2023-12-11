@@ -37,30 +37,6 @@ export default function Home() {
           <ContactList />
         </div>
       </div>
-      {/* <GitHubIcon />
-      <LinkedInIcon />
-      <TwitterIcon />
-      <ContactMailIcon />
-      {SOCAIL_LINKS.map((l, i) => (
-        <div
-          key={i}
-          className='aspect-square w-10 rounded-full p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300'
-        >
-          <IconButton size='large'>
-            <Link
-              href={l.url}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='flex items-center justify-center h-full'
-            >
-              <l.icon
-                fontSize='large'
-                className='text-black hover:text-pink-500'
-              />
-            </Link>
-          </IconButton>
-        </div>
-      ))} */}
     </main>
   )
 }

@@ -53,7 +53,7 @@ export default function ContactList() {
           mouseX.set(val)
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className='mx-auto w-60 flex h-16 sm:items-end items-center justify-center gap-4 rounded-2xl bg-gray-700 hover:bg-gray-800 px-4 sm:pb-3 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 border border-purple-300'
+        className='mx-auto w-60 flex h-16 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-3 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 border border-purple-300 shadow'
       >
         {SOCAIL_LINKS.map((l, i) => (
           <AppIcon mouseX={mouseX} key={i} link={l} />
@@ -92,24 +92,24 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className='aspect-square w-10 rounded-full hover:shadow-xl bg-slate-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-300 text-black hover:text-pink-500'
+      className='aspect-square w-10 rounded-full hover:shadow-xl dark:bg-slate-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-100 text-black hover:text-pink-500 dark:hover:text-pink-200'
     >
-      <IconButton
-        sx={{
-          width: '100%',
-          height: '100%',
-          color: 'inherit'
-        }}
+      <Link
+        href={link.url}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='text-inherit'
       >
-        <Link
-          href={link.url}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-inherit'
+        <IconButton
+          sx={{
+            width: '100%',
+            height: '100%',
+            color: 'inherit'
+          }}
         >
           <link.icon className='text-inherit' />
-        </Link>
-      </IconButton>
+        </IconButton>
+      </Link>
     </motion.div>
   )
 }
