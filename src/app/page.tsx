@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import ContactList from './ContactLinks'
-
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import ContactMailIcon from '@mui/icons-material/ContactMail'
 const SkillClassName =
   'text-gray-900 font-semibold dark:text-gray-100 underline'
 
@@ -37,6 +40,10 @@ export default function Home() {
           <ContactList />
         </div>
       </div>
+      <GitHubIcon />
+      <LinkedInIcon />
+      <TwitterIcon />
+      <ContactMailIcon />
     </main>
   )
 }
