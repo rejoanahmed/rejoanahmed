@@ -72,7 +72,9 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
       y: 0,
       height: 0
     }
-    // console.log(ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 })
+    // check if window is defined
+    if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
+
     const windowWidth = window.innerWidth
     if (windowWidth <= 640) {
       return val - bounds.y - bounds.height / 2
