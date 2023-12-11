@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ContactList from './ContactLinks'
 
 const SkillClassName =
   'text-gray-900 font-semibold dark:text-gray-100 underline'
@@ -6,7 +7,7 @@ const SkillClassName =
 export default function Home() {
   return (
     <main>
-      <div className='flex justify-between sm:gap-8 flex-wrap-reverse items-end -mt-8'>
+      <div className='flex justify-between flex-col-reverse sm:flex-row sm:gap-8 items-start -mt-8'>
         <div className='shrink-0 basis-72 grow p-0'>
           <h2 className='tracking-tighter font-medium'>
             hey, I&apos;m rejoan 👋
@@ -24,14 +25,17 @@ export default function Home() {
           </p>
         </div>
 
-        <Image
-          priority
-          src='/me/4.png'
-          width={180}
-          height={150}
-          alt='Rejoan Ahmed'
-          className='rounded-full border-b-4 border-pink-500 block gradient-container shadow-xl w-auto h-auto my-0 mt-8 mx-auto'
-        />
+        <div className='max-w-[180] mx-auto'>
+          <Image
+            priority
+            src='/me/4.png'
+            width={180}
+            height={150}
+            alt='Rejoan Ahmed'
+            className='rounded-full border-b-4 border-pink-500 block gradient-container shadow-xl w-auto h-auto my-0 mt-8 mx-auto mb-6'
+          />
+          <ContactList />
+        </div>
       </div>
     </main>
   )
