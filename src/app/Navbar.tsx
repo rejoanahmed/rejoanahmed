@@ -11,24 +11,38 @@ const links = [
   { href: '/devlog', label: 'devlog' }
 ]
 
-const Navbar = () => {
+import { motion } from 'framer-motion'
+
+function AnimatedTabs() {
   const pathname = usePathname()
+
   return (
-    <nav className='flex gap-4 justify-start mb-8'>
-      <ToggleTheme />
-      {links.map(({ href, label }) => (
+    <div className='flex space-x-1'>
+      {links.map((tab) => (
         <Link
-          key={href}
-          href={href}
-          className={`transition-colors duration-200 ${
-            pathname !== href ? 'no-underline' : 'underline text-pink-600'
-          }`}
+          href={tab.href}
+          key={tab.href}
+          className={`${
+            pathname === tab.href ? '' : 'hover:text-slate-600'
+          } no-underline relative rounded-full px-3 py-1.5 text-sm font-medium outline-sky-400 transition focus-visible:outline-2`}
+          style={{
+            WebkitTapHighlightColor: 'transparent'
+          }}
         >
-          {label}
+          {pathname === tab.href && (
+            <motion.span
+              layoutId='bubble'
+              className='absolute inset-0  -z-10 bg-pink-200'
+              style={{ borderRadius: 9999 }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+            />
+          )}
+          {tab.label}
         </Link>
       ))}
-    </nav>
+      <ToggleTheme />
+    </div>
   )
 }
 
-export default Navbar
+export default AnimatedTabs

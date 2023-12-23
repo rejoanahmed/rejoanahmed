@@ -53,7 +53,7 @@ export default function ContactList() {
           mouseX.set(val)
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className='mx-auto w-60 flex h-16 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-3 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 border border-purple-300 shadow'
+        className='mx-auto w-60 flex h-14 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-2 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 border border-purple-300 shadow shadow-pink-100'
       >
         {SOCAIL_LINKS.map((l, i) => (
           <AppIcon mouseX={mouseX} key={i} link={l} />

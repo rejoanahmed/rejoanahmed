@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-[#111010] min-h-screen min-w-full'
+          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
         }
       >
         <div className='max-w-4xl mx-auto'>

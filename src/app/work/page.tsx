@@ -1,5 +1,11 @@
 function page() {
-  return <div>Work page</div>
+  return (
+    <div>
+      <section>
+        <h3>Waymark Care</h3>
+      </section>
+    </div>
+  )
 }
 
 export default page
