@@ -34,15 +34,13 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' p-10 prose xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
+          ' p-10 pt-0 prose xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
         }
       >
-        <div className='max-w-4xl mx-auto'>
-          <ThemeProvider>
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </div>
+        <ThemeProvider>
+          <Navbar />
+          <div className='max-w-4xl mx-auto pt-24'>{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   )

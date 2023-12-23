@@ -5,19 +5,19 @@ import { usePathname } from 'next/navigation'
 import ToggleTheme from './toggleTheme'
 
 const links = [
-  { href: '/', label: 'home' },
-  { href: '/work', label: 'work' },
-  { href: '/showcase', label: 'showcase' },
-  { href: '/devlog', label: 'devlog' }
+  { href: '/', label: 'Home' },
+  { href: '/work', label: 'Work' },
+  { href: '/showcase', label: 'Showcase' },
+  { href: '/devlog', label: 'Devlog' }
 ]
 
 import { motion } from 'framer-motion'
 
-function AnimatedTabs() {
+function Navbar() {
   const pathname = usePathname()
 
   return (
-    <div className='flex space-x-1 justify-center mb-2 relative'>
+    <div className='flex space-x-1 justify-center py-2 fixed left-0 right-0 top-0 pt-5 sm:pt-10 px-10 dark:bg-[#1a1a1a]/25 bg-white/25 backdrop-blur-md z-10 shadow-md'>
       {links.map((tab) => (
         <Link
           href={tab.href}
@@ -45,4 +45,4 @@ function AnimatedTabs() {
   )
 }
 
-export default AnimatedTabs
+export default Navbar

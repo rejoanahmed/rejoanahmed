@@ -46,14 +46,19 @@ export default function ContactList() {
   const { width: windowWidth } = useWindowSize()
 
   return (
-    <div className='w-48 rotate-90 sm:rotate-0 realtive flex justify-center'>
+    <div className='rotate-90 sm:rotate-0 realtive flex justify-center group'>
+      <div className='absolute -left-28 -mt-2 hidden sm:block'>
+        <h3 className='text-rose-700/10 group-hover:text-rose-700/50 underline transition-colors duration-200'>
+          Contacts:
+        </h3>
+      </div>
       <motion.div
         onMouseMove={(e) => {
           const val = windowWidth > 640 ? e.pageX : e.pageY
           mouseX.set(val)
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className='mx-auto w-60 flex h-14 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-2 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 border border-purple-300 shadow shadow-pink-100'
+        className='mx-auto w-60 flex h-14 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-2 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 shadow shadow-pink-100 bg-pink-200/10'
       >
         {SOCAIL_LINKS.map((l, i) => (
           <AppIcon mouseX={mouseX} key={i} link={l} />

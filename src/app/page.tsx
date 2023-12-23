@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <div className='flex justify-between flex-col-reverse sm:flex-row sm:gap-8 items-start -mt-8'>
-        <div className='shrink-0 basis-72 grow p-0'>
+        <div className='shrink-0 basis-72 grow p-0 -mt-8 sm:mt-8'>
           <h2 className='tracking-tighter font-medium'>
             hey, I&apos;m rejoan 👋
           </h2>
@@ -37,6 +37,70 @@ export default function Home() {
           <ContactList />
         </div>
       </div>
+      <section>
+        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
+          What I&apos;m up to
+        </h3>
+        <p className='text-justify'>
+          I am currently working as a software engineer at{' '}
+          <span className={SkillClassName}>Waymark Tech</span>, where I am
+          building a platform to help people with disabilities find jobs. I am
+          also working on a <span className={SkillClassName}>React Native</span>{' '}
+          application that will help people with disabilities find jobs.
+        </p>
+      </section>
+
+      <section>
+        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
+          What I&apos;m learning
+        </h3>
+        <p className='text-justify'>
+          I am currently learning{' '}
+          <span className={SkillClassName}>GraphQL</span> and{' '}
+          <span className={SkillClassName}>Hasura</span> to build a{' '}
+          <span className={SkillClassName}>GraphQL</span> API for a{' '}
+          <span className={SkillClassName}>React Native</span> application.
+        </p>
+      </section>
+
+      <section>
+        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
+          What I&apos;m reading
+        </h3>
+        <p className='text-justify'>
+          I am currently reading{' '}
+          <span className={SkillClassName}>The Pragmatic Programmer</span> by
+          Andrew Hunt and David Thomas.
+        </p>
+      </section>
+      <section>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+        impedit voluptate autem cupiditate sapiente voluptatem id aspernatur
+        unde similique accusamus expedita dicta nam magnam, nostrum ratione
+        aliquid. Non aut nam placeat. Exercitationem velit, reprehenderit eius
+        voluptatibus recusandae dolorem voluptas ipsa maxime nemo sint
+        laudantium voluptate ea qui harum, autem delectus debitis quidem
+        obcaecati. Eum nemo fugiat repudiandae, accusamus a itaque voluptatum
+        est rerum eveniet animi ducimus facere, saepe non molestiae rem unde,
+        nesciunt tempora voluptatem molestias excepturi. Aperiam doloribus
+        mollitia reprehenderit quae quia dolorum odio voluptate quis earum
+        repudiandae. Voluptates, amet. Velit, fugiat officia enim voluptatum
+        deserunt ratione architecto incidunt!
+      </section>
+      <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+        soluta et qui necessitatibus fugiat rem nesciunt odit doloribus aperiam
+        deserunt, exercitationem vel vitae quas, in blanditiis eum repudiandae
+        harum iusto maiores architecto consectetur odio minus dolorem
+        reprehenderit. Velit ducimus eos voluptas, asperiores, ullam quas beatae
+        eaque similique a necessitatibus architecto deleniti exercitationem
+        corrupti praesentium corporis fugit. Eum sint recusandae aspernatur
+        reprehenderit, delectus doloribus iure expedita ea obcaecati
+        consequuntur sunt maiores rem, neque corporis impedit. Voluptates
+        commodi illo nisi rerum porro facere nulla blanditiis iure numquam modi,
+        voluptatum tenetur repellendus autem, vitae illum quos odio eos corporis
+        sunt reprehenderit culpa? Culpa.
+      </section>
     </main>
   )
 }
