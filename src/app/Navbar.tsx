@@ -24,7 +24,7 @@ function Navbar() {
           key={tab.href}
           className={`${
             pathname === tab.href ? '' : 'hover:text-slate-600'
-          } no-underline relative rounded-full px-3 py-1.5 text-sm font-medium outline-sky-400 transition focus-visible:outline-2 isolate`}
+          } no-underline relative rounded-full px-3 py-1.5 text-sm outline-sky-400 transition focus-visible:outline-2 isolate`}
           style={{
             WebkitTapHighlightColor: 'transparent'
           }}
@@ -32,7 +32,7 @@ function Navbar() {
           {pathname === tab.href && (
             <motion.span
               layoutId='bubble'
-              className='absolute inset-0  bg-pink-200 dark:bg-slate-700 -z-10'
+              className='absolute inset-0 bg-gradient-to-b from-pink-200/20 to-pink-200 shadow-pink-600 dark:to-slate-700 dark:shadow-white shadow-2xl -z-10'
               style={{ borderRadius: 9999 }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
             />

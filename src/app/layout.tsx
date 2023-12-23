@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import { Nunito_Sans } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import './globals.css'
 import Navbar from './Navbar'
 import { ThemeProvider } from './theme-provider'
 
-const inter = Nunito_Sans({ subsets: ['latin'] })
+const inter = Roboto({
+  weight: ['100', '300', '400'],
+  subsets: ['latin', 'latin-ext']
+})
 
 export const metadata: Metadata = {
   title: 'Rejoan Ahmed',
@@ -34,7 +37,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' p-10 pt-0 prose xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
+          ' p-10 pt-0 prose 2xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
         }
       >
         <ThemeProvider>

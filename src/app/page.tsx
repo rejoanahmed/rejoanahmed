@@ -1,17 +1,20 @@
 import Image from 'next/image'
 import ContactList from './ContactLinks'
+import GridLine from './GridLine'
 
-const SkillClassName =
-  'text-gray-900 font-semibold dark:text-gray-100 underline'
+const SkillClassName = 'underline'
 
 export default function Home() {
   return (
-    <main>
+    <main className='relative'>
       <div className='flex justify-between flex-col-reverse sm:flex-row sm:gap-8 items-start -mt-8'>
-        <div className='shrink-0 basis-72 grow p-0 -mt-8 sm:mt-8'>
-          <h2 className='tracking-tighter font-medium'>
+        <div className='shrink-0 basis-72 grow p-0 -mt-8 sm:mt-8 relative'>
+          <h2 className='tracking-tighter font-medium text-center'>
             hey, I&apos;m rejoan 👋
           </h2>
+          <div className='-mt-4'>
+            <GridLine />
+          </div>
           <p className='text-justify'>
             I am a full stack developer with a passion for developing quality
             software. I have a strong passion for social impact and global
@@ -38,9 +41,7 @@ export default function Home() {
         </div>
       </div>
       <section>
-        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
-          What I&apos;m up to
-        </h3>
+        <h3>What I&apos;m up to</h3>
         <p className='text-justify'>
           I am currently working as a software engineer at{' '}
           <span className={SkillClassName}>Waymark Tech</span>, where I am
@@ -51,9 +52,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
-          What I&apos;m learning
-        </h3>
+        <h3>What I&apos;m learning</h3>
         <p className='text-justify'>
           I am currently learning{' '}
           <span className={SkillClassName}>GraphQL</span> and{' '}
@@ -64,9 +63,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h3 className='mt-8 mb-4 font-semibold text-gray-900 dark:text-gray-100'>
-          What I&apos;m reading
-        </h3>
+        <h3>What I&apos;m reading</h3>
         <p className='text-justify'>
           I am currently reading{' '}
           <span className={SkillClassName}>The Pragmatic Programmer</span> by
