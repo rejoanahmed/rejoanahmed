@@ -30,7 +30,7 @@ function ToggleTheme() {
   }
 
   return (
-    <div className='form-control absolute top-9 right-10'>
+    <div className='form-control absolute right-0'>
       <label className='label cursor-pointer'>
         <span className='label-text dark:text-gray-200'>
           <svg

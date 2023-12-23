@@ -17,14 +17,14 @@ function AnimatedTabs() {
   const pathname = usePathname()
 
   return (
-    <div className='flex space-x-1 justify-center'>
+    <div className='flex space-x-1 justify-center mb-2 relative'>
       {links.map((tab) => (
         <Link
           href={tab.href}
           key={tab.href}
           className={`${
             pathname === tab.href ? '' : 'hover:text-slate-600'
-          } no-underline relative rounded-full px-3 py-1.5 text-sm font-medium outline-sky-400 transition focus-visible:outline-2`}
+          } no-underline relative rounded-full px-3 py-1.5 text-sm font-medium outline-sky-400 transition focus-visible:outline-2 isolate`}
           style={{
             WebkitTapHighlightColor: 'transparent'
           }}
@@ -32,7 +32,7 @@ function AnimatedTabs() {
           {pathname === tab.href && (
             <motion.span
               layoutId='bubble'
-              className='absolute inset-0  -z-10 bg-pink-200'
+              className='absolute inset-0  bg-pink-200 dark:bg-slate-700 -z-10'
               style={{ borderRadius: 9999 }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
             />
