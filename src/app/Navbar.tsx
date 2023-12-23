@@ -17,7 +17,7 @@ function AnimatedTabs() {
   const pathname = usePathname()
 
   return (
-    <div className='flex space-x-1'>
+    <div className='flex space-x-1 justify-center'>
       {links.map((tab) => (
         <Link
           href={tab.href}
