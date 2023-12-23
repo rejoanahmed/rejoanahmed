@@ -73,34 +73,6 @@ export default function Home() {
           Andrew Hunt and David Thomas.
         </p>
       </section>
-      <section>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
-        impedit voluptate autem cupiditate sapiente voluptatem id aspernatur
-        unde similique accusamus expedita dicta nam magnam, nostrum ratione
-        aliquid. Non aut nam placeat. Exercitationem velit, reprehenderit eius
-        voluptatibus recusandae dolorem voluptas ipsa maxime nemo sint
-        laudantium voluptate ea qui harum, autem delectus debitis quidem
-        obcaecati. Eum nemo fugiat repudiandae, accusamus a itaque voluptatum
-        est rerum eveniet animi ducimus facere, saepe non molestiae rem unde,
-        nesciunt tempora voluptatem molestias excepturi. Aperiam doloribus
-        mollitia reprehenderit quae quia dolorum odio voluptate quis earum
-        repudiandae. Voluptates, amet. Velit, fugiat officia enim voluptatum
-        deserunt ratione architecto incidunt!
-      </section>
-      <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-        soluta et qui necessitatibus fugiat rem nesciunt odit doloribus aperiam
-        deserunt, exercitationem vel vitae quas, in blanditiis eum repudiandae
-        harum iusto maiores architecto consectetur odio minus dolorem
-        reprehenderit. Velit ducimus eos voluptas, asperiores, ullam quas beatae
-        eaque similique a necessitatibus architecto deleniti exercitationem
-        corrupti praesentium corporis fugit. Eum sint recusandae aspernatur
-        reprehenderit, delectus doloribus iure expedita ea obcaecati
-        consequuntur sunt maiores rem, neque corporis impedit. Voluptates
-        commodi illo nisi rerum porro facere nulla blanditiis iure numquam modi,
-        voluptatum tenetur repellendus autem, vitae illum quos odio eos corporis
-        sunt reprehenderit culpa? Culpa.
-      </section>
     </main>
   )
 }
