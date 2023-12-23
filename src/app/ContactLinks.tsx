@@ -14,6 +14,7 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import { useWindowSize } from '@/hooks.ts'
 import IconButton from '@mui/material/IconButton'
+import Tooltip from '@mui/material/Tooltip'
 
 const SOCAIL_LINKS = [
   {
@@ -105,15 +106,17 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
         rel='noopener noreferrer'
         className='text-inherit'
       >
-        <IconButton
-          sx={{
-            width: '100%',
-            height: '100%',
-            color: 'inherit'
-          }}
-        >
-          <link.icon className='text-inherit' />
-        </IconButton>
+        <Tooltip title={link.name}>
+          <IconButton
+            sx={{
+              width: '100%',
+              height: '100%',
+              color: 'inherit'
+            }}
+          >
+            <link.icon className='text-inherit' />
+          </IconButton>
+        </Tooltip>
       </Link>
     </motion.div>
   )
