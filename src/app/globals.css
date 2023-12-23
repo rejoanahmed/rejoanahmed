@@ -48,3 +48,7 @@
     transform: translateX(1);
   }
 }
+
+body {
+  overscroll-behavior: none;
+}
