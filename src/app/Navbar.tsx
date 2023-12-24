@@ -11,8 +11,6 @@ const links = [
   { href: '/devlog', label: 'Devlog' }
 ]
 
-import { motion } from 'framer-motion'
-
 function Navbar() {
   const pathname = usePathname()
 
@@ -29,14 +27,13 @@ function Navbar() {
             WebkitTapHighlightColor: 'transparent'
           }}
         >
-          {pathname === tab.href && (
-            <motion.span
-              layoutId='bubble'
-              className='absolute inset-0 bg-gradient-to-b from-pink-200/20 to-pink-200 shadow-pink-600 dark:to-slate-700 dark:shadow-white shadow-2xl -z-10'
-              style={{ borderRadius: 9999 }}
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
+          <span
+            className={`absolute inset-0 bg-gradient-to-b from-pink-200/20 to-pink-200 shadow-pink-600 dark:to-slate-700 dark:shadow-white shadow-2xl -z-10 transition-all duration-500 ${
+              pathname === tab.href ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ borderRadius: 9999 }}
+          />
+
           {tab.label}
         </Link>
       ))}
