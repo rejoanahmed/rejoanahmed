@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import ContactList from './ContactLinks'
 import GridLine from './GridLine'
+import Link from 'next/link'
+import Skills from './Skills'
 
 const SkillClassName = 'underline'
 
@@ -17,9 +19,10 @@ export default function Home() {
           </div>
           <p className='text-justify'>
             I am a full stack developer with a passion for developing quality
-            software. I have a strong passion for social impact and global
-            challenges, and I have developed and deployed robust and scalable
-            web applications using <span className={SkillClassName}>HTML</span>,{' '}
+            software. My commitment extends beyond the code, with a profound
+            passion for addressing social impact and global challenges and I
+            have developed and deployed robust and scalable web applications
+            using <span className={SkillClassName}>HTML</span>,{' '}
             <span className={SkillClassName}>CSS</span>,{' '}
             <span className={SkillClassName}>Typescript</span>, and various
             frameworks, such as <span className={SkillClassName}>React</span>,{' '}
@@ -41,13 +44,22 @@ export default function Home() {
         </div>
       </div>
       <section>
+        <Skills />
+      </section>
+
+      <section>
         <h3>What I&apos;m up to</h3>
         <p className='text-justify'>
-          I am currently working as a software engineer at{' '}
-          <span className={SkillClassName}>Waymark Tech</span>, where I am
-          building a platform to help people with disabilities find jobs. I am
-          also working on a <span className={SkillClassName}>React Native</span>{' '}
-          application that will help people with disabilities find jobs.
+          I am currently working as a full-stack software engineer at{' '}
+          <Link href='https://www.kyand.co/' target='_blank'>
+            KY & Company
+          </Link>
+          . I love building websites and web applications using{' '}
+          <span className={SkillClassName}>Next JS</span>, and{' '}
+          <span className={SkillClassName}>Typescript</span>. I am also
+          passionate about developing mobile applications using{' '}
+          <span className={SkillClassName}>React Native</span> and{' '}
+          <span className={SkillClassName}>Expo</span>.
         </p>
       </section>
 

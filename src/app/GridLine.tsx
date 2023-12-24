@@ -2,11 +2,10 @@
 
 import { useTheme } from 'next-themes'
 
-function GridLine() {
+function GridLine({ className }: { className?: string }) {
   const { resolvedTheme } = useTheme()
-  const className =
-    resolvedTheme === 'dark' ? 'gridLine-Dark' : 'gridLine-Light'
-  return <div className={className}></div>
+  const cls = resolvedTheme === 'dark' ? 'gridLine-Dark' : 'gridLine-Light'
+  return <div className={cls + ' ' + className}></div>
 }
 
 export default GridLine

@@ -48,7 +48,7 @@ export default function ContactList() {
 
   return (
     <div className='rotate-90 sm:rotate-0 realtive flex justify-center group'>
-      <div className='absolute -left-28 -mt-2 hidden sm:block'>
+      <div className='absolute -left-28 -mt-3 hidden sm:block'>
         <h3 className='text-rose-700/10 group-hover:text-rose-700/50 underline transition-colors duration-200'>
           Contacts:
         </h3>
