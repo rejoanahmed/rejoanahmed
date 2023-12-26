@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 import './globals.css'
 import Navbar from './Navbar'
 import { ThemeProvider } from './theme-provider'
+import Footer from './Footer'
 
 const inter = Roboto({
   weight: ['100', '300', '400'],
@@ -37,12 +38,13 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          ' p-10 pt-0 prose 2xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full'
+          ' p-10 pt-0 prose 2xl:prose-lg dark:prose-invert dark:bg-[#1a1a1a] min-h-screen min-w-full flex flex-col justify-start'
         }
       >
         <ThemeProvider>
           <Navbar />
-          <div className='max-w-4xl mx-auto pt-24'>{children}</div>
+          <div className='max-w-4xl mx-auto pt-24 flex-grow'>{children}</div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

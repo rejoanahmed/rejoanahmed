@@ -15,7 +15,7 @@ function Navbar() {
   const pathname = usePathname()
 
   return (
-    <div className='flex space-x-1 justify-center py-2 fixed left-0 right-0 top-0 pt-5 sm:pt-10 px-10 dark:bg-[#1a1a1a]/25 bg-white/25 backdrop-blur-md z-10 shadow-md'>
+    <nav className='flex space-x-1 justify-center py-2 fixed left-0 right-0 top-0 pt-5 sm:pt-10 px-10 dark:bg-[#1a1a1a]/25 bg-white/25 backdrop-blur-md z-10 shadow-md'>
       {links.map((tab) => (
         <Link
           href={tab.href}
@@ -38,7 +38,7 @@ function Navbar() {
         </Link>
       ))}
       <ToggleTheme />
-    </div>
+    </nav>
   )
 }
 

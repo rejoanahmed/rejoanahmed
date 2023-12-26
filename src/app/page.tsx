@@ -8,7 +8,7 @@ import { SkillClassName } from './constants'
 export default function Home() {
   return (
     <main className='relative'>
-      <div className='flex justify-between flex-col-reverse sm:flex-row sm:gap-8 items-start -mt-8'>
+      <section className='flex justify-between flex-col-reverse sm:flex-row sm:gap-8 items-start -mt-8'>
         <div className='shrink-0 basis-72 grow p-0 -mt-8 sm:mt-8 relative'>
           <h2 className='tracking-tighter font-medium text-center'>
             hey, I&apos;m rejoan 👋
@@ -41,44 +41,23 @@ export default function Home() {
           />
           <ContactList />
         </div>
-      </div>
+      </section>
       <section>
         <Skills />
       </section>
 
       <section>
         <h3>What I&apos;m up to</h3>
+        <GridLine />
         <p className='text-justify'>
           I am currently working as a full-stack software engineer at{' '}
           <Link href='https://www.kyand.co/' target='_blank'>
             KY & Company
           </Link>
-          . I love building websites and web applications using{' '}
-          <span className={SkillClassName}>Next JS</span>, and{' '}
-          <span className={SkillClassName}>Typescript</span>. I am also
-          passionate about developing mobile applications using{' '}
+          . I am also working on a personal side-project about developing mobile
+          applications using{' '}
           <span className={SkillClassName}>React Native</span> and{' '}
           <span className={SkillClassName}>Expo</span>.
-        </p>
-      </section>
-
-      <section>
-        <h3>What I&apos;m learning</h3>
-        <p className='text-justify'>
-          I am currently learning{' '}
-          <span className={SkillClassName}>GraphQL</span> and{' '}
-          <span className={SkillClassName}>Hasura</span> to build a{' '}
-          <span className={SkillClassName}>GraphQL</span> API for a{' '}
-          <span className={SkillClassName}>React Native</span> application.
-        </p>
-      </section>
-
-      <section>
-        <h3>What I&apos;m reading</h3>
-        <p className='text-justify'>
-          I am currently reading{' '}
-          <span className={SkillClassName}>The Pragmatic Programmer</span> by
-          Andrew Hunt and David Thomas.
         </p>
       </section>
     </main>
