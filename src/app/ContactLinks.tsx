@@ -15,6 +15,7 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import { useWindowSize } from '@/hooks.ts'
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
+import EmailIcon from '@mui/icons-material/Email'
 
 const SOCAIL_LINKS = [
   {
@@ -35,7 +36,7 @@ const SOCAIL_LINKS = [
   {
     name: 'Email',
     url: 'mailto:rejoanahmed8@gmail.com',
-    icon: ContactMailIcon
+    icon: EmailIcon
   }
 ]
 

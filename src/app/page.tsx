@@ -3,8 +3,7 @@ import ContactList from './ContactLinks'
 import GridLine from './GridLine'
 import Link from 'next/link'
 import Skills from './Skills'
-
-const SkillClassName = 'underline'
+import { SkillClassName } from './constants'
 
 export default function Home() {
   return (
@@ -20,9 +19,9 @@ export default function Home() {
           <p className='text-justify'>
             I am a full stack developer with a passion for developing quality
             software. My commitment extends beyond the code, with a profound
-            passion for addressing social impact and global challenges and I
-            have developed and deployed robust and scalable web applications
-            using <span className={SkillClassName}>HTML</span>,{' '}
+            passion for addressing social impact and global challenges. In the
+            past, I have developed and deployed robust and scalable web
+            applications using <span className={SkillClassName}>HTML</span>,{' '}
             <span className={SkillClassName}>CSS</span>,{' '}
             <span className={SkillClassName}>Typescript</span>, and various
             frameworks, such as <span className={SkillClassName}>React</span>,{' '}

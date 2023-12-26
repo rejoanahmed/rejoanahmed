@@ -1,120 +1,17 @@
-'use client'
 import React from 'react'
 import { FaReact } from 'react-icons/fa'
 import { SiTypescript } from 'react-icons/si'
 import Image from 'next/image'
 import GridLine from './GridLine'
-import { motion } from 'framer-motion'
+import AnimatedBlob from './AnimatedBlob'
+import { SkillClassName } from './constants'
 function Skills() {
   return (
-    <div className='relative'>
+    <div className='relative text-justify'>
       <h3 className='mb-4'>Tech stack I really enjoy</h3>
       <GridLine className='mt-4' />
       <div className='relative overflow-hidden'>
-        <motion.div
-          animate={{
-            scale: [1, 2, 1.5, 2, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 1
-            }
-          }}
-          className='absolute left-0 w-32 h-32 bg-red-200 rounded-full mt-4'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 2, 1.5, 2, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 1
-            }
-          }}
-          className='absolute left-20 bottom-1/2 w-32 h-32 bg-pink-200 rounded-full mt-4'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 2, 1.5, 2, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 1
-            }
-          }}
-          className='absolute left-50 w-32 h-32 bg-purple-200 rounded-full mt-4'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 2, 1.5, 2, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 1
-            }
-          }}
-          className='absolute right-1/3 bottom-1/2 w-32 h-32 bg-red-200 rounded-full mt-4'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 2
-            }
-          }}
-          className='absolute left-1/4 bottom-0 w-32 h-32 bg-red-200 rounded-full mt-4'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 3
-            }
-          }}
-          className='absolute right-1/4 bottom-0 w-32 h-32 bg-pink-200 rounded-full'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            translateX: [0, 100, 20, 50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 4
-            }
-          }}
-          className='absolute w-20 left-1/2 h-20 bg-pink-200 rounded-full'
-        ></motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            translateX: [0, -100, -20, -50, 0],
-            translateY: [0, -50, 50, 25, 0],
-            transition: {
-              duration: 32,
-              repeat: Infinity,
-              delay: 5
-            }
-          }}
-          className='absolute right-0 w-32 h-32 bg-blue-200 rounded-full'
-        ></motion.div>
+        <AnimatedBlob />
         <div className='flex gap-12 items-center justify-center border-spacing-1 dark:bg-slate-600/10 bg-white/10 backdrop-blur-2xl overflow-hidden flex-wrap rounded-2xl p-4'>
           <FaReact className='text-sky-600 text-7xl shrink-0' />
           <svg viewBox='0 0 180 180' className='w-20 shrink-0'>
@@ -221,6 +118,52 @@ function Skills() {
           </svg>
         </div>
       </div>
+      <GridLine className='mt-4' />
+      <p className='mt-8'>
+        I possess an insatiable appetite for staying abreast of cutting-edge
+        technologies. Over the course of my professional journey, I&apos;ve
+        artfully navigated through a diverse spectrum of technological
+        landscapes. Behold, a curated selection of my tech dalliances:
+      </p>
+      <ul>
+        <li>
+          <h4>Framework</h4>
+          <p>
+            I love the simplicity and ease of developing and deploying a
+            FullStack product with{' '}
+            <span className={SkillClassName}>Next JS</span>. I have also worked
+            with <span className={SkillClassName}>React Router</span> and{' '}
+            <span className={SkillClassName}>Framer Motion</span> for
+            animations. Other than that, I have tried out{' '}
+            <span className={SkillClassName}>Vue JS</span> and{' '}
+            <span className={SkillClassName}>Svelte</span>.
+          </p>
+        </li>
+        <li>
+          <h4>Language</h4>
+          <p>
+            I prefer the type safety and the ability to write cleaner code with{' '}
+            <span className={SkillClassName}>Typescript</span> than{' '}
+            <span className={SkillClassName}>Javascript</span>. I am also
+            familiar with <span className={SkillClassName}>Python</span> and{' '}
+            <span className={SkillClassName}>Java</span>.
+          </p>
+        </li>
+        <li>
+          <h4>Databases</h4>
+          <p>
+            I have completed a handful of projects with{' '}
+            <span className={SkillClassName}>Firebase</span> and{' '}
+            <span className={SkillClassName}>PostgreSQL</span>. I am also
+            familiar with <span className={SkillClassName}>MongoDB</span>,{' '}
+            <span className={SkillClassName}>PlanetScale</span> and{' '}
+            <span className={SkillClassName}>Redis</span>. I have done some side
+            projects that use{' '}
+            <span className={SkillClassName}>Elasticsearch</span> and{' '}
+            <span className={SkillClassName}>Algolia</span> as well.
+          </p>
+        </li>
+      </ul>
     </div>
   )
 }
