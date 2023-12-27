@@ -1,5 +1,5 @@
 function page() {
-  return <div>showcase</div>
+  return <div>showcase</div>;
 }
 
-export default page
+export default page;

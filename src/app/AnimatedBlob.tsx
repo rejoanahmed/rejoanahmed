@@ -1,5 +1,5 @@
-'use client'
-import { motion } from 'framer-motion'
+'use client';
+import { motion } from 'framer-motion';
 function AnimatedBlob() {
   return (
     <>
@@ -15,7 +15,7 @@ function AnimatedBlob() {
             delay: 1
           }
         }}
-        className='absolute left-0 w-32 h-32 bg-red-200 rounded-full mt-4'
+        className="absolute left-0 mt-4 h-32 w-32 rounded-full bg-red-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -28,7 +28,7 @@ function AnimatedBlob() {
             delay: 1
           }
         }}
-        className='absolute left-20 bottom-1/2 w-32 h-32 bg-pink-200 rounded-full mt-4'
+        className="absolute bottom-1/2 left-20 mt-4 h-32 w-32 rounded-full bg-pink-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -41,7 +41,7 @@ function AnimatedBlob() {
             delay: 1
           }
         }}
-        className='absolute left-50 w-32 h-32 bg-purple-200 rounded-full mt-4'
+        className="left-50 absolute mt-4 h-32 w-32 rounded-full bg-purple-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -54,7 +54,7 @@ function AnimatedBlob() {
             delay: 1
           }
         }}
-        className='absolute right-1/3 bottom-1/2 w-32 h-32 bg-red-200 rounded-full mt-4'
+        className="absolute bottom-1/2 right-1/3 mt-4 h-32 w-32 rounded-full bg-red-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -67,7 +67,7 @@ function AnimatedBlob() {
             delay: 2
           }
         }}
-        className='absolute left-1/4 bottom-0 w-32 h-32 bg-red-200 rounded-full mt-4'
+        className="absolute bottom-0 left-1/4 mt-4 h-32 w-32 rounded-full bg-red-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -80,7 +80,7 @@ function AnimatedBlob() {
             delay: 3
           }
         }}
-        className='absolute right-1/4 bottom-0 w-32 h-32 bg-pink-200 rounded-full'
+        className="absolute bottom-0 right-1/4 h-32 w-32 rounded-full bg-pink-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -93,7 +93,7 @@ function AnimatedBlob() {
             delay: 4
           }
         }}
-        className='absolute w-20 left-1/2 h-20 bg-pink-200 rounded-full'
+        className="absolute left-1/2 h-20 w-20 rounded-full bg-pink-200"
       ></motion.div>
       <motion.div
         animate={{
@@ -106,10 +106,10 @@ function AnimatedBlob() {
             delay: 5
           }
         }}
-        className='absolute right-0 w-32 h-32 bg-blue-200 rounded-full'
+        className="absolute right-0 h-32 w-32 rounded-full bg-blue-200"
       ></motion.div>
     </>
-  )
+  );
 }
 
-export default AnimatedBlob
+export default AnimatedBlob;

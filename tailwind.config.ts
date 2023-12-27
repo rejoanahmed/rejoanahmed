@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   darkMode: 'class',
@@ -16,6 +16,10 @@ const config: Config = {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography'), require('daisyui')]
-}
-export default config
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+    'prettier-plugin-tailwindcss'
+  ]
+};
+export default config;

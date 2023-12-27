@@ -1,21 +1,20 @@
-'use client'
+'use client';
 import {
   MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform
-} from 'framer-motion'
-import Link from 'next/link'
-import { useRef } from 'react'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
-import { useWindowSize } from '@/hooks.ts'
-import IconButton from '@mui/material/IconButton'
-import Tooltip from '@mui/material/Tooltip'
-import EmailIcon from '@mui/icons-material/Email'
+} from 'framer-motion';
+import Link from 'next/link';
+import { useRef } from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import { useWindowSize } from '@/hooks.ts';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EmailIcon from '@mui/icons-material/Email';
 
 const SOCAIL_LINKS = [
   {
@@ -38,40 +37,40 @@ const SOCAIL_LINKS = [
     url: 'mailto:rejoanahmed8@gmail.com',
     icon: EmailIcon
   }
-]
+];
 
-type LINKTYPE = (typeof SOCAIL_LINKS)[number]
+type LINKTYPE = (typeof SOCAIL_LINKS)[number];
 
 export default function ContactList() {
-  let mouseX = useMotionValue(Infinity)
+  let mouseX = useMotionValue(Infinity);
 
-  const { width: windowWidth } = useWindowSize()
+  const { width: windowWidth } = useWindowSize();
 
   return (
-    <div className='rotate-90 sm:rotate-0 realtive flex justify-center group'>
-      <div className='absolute -left-28 -mt-3 hidden sm:block'>
-        <h3 className='text-rose-700/10 group-hover:text-rose-700/50 underline transition-colors duration-200'>
+    <div className="realtive group flex rotate-90 justify-center sm:rotate-0">
+      <div className="absolute -left-28 -mt-3 hidden sm:block">
+        <h3 className="text-rose-700/10 underline transition-colors duration-200 group-hover:text-rose-700/50">
           Contacts:
         </h3>
       </div>
       <motion.div
         onMouseMove={(e) => {
-          const val = windowWidth > 640 ? e.pageX : e.pageY
-          mouseX.set(val)
+          const val = windowWidth > 640 ? e.pageX : e.pageY;
+          mouseX.set(val);
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className='mx-auto w-60 flex h-14 sm:items-end items-center justify-center gap-4 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-800 px-4 sm:pb-2 sm:relative absolute right-28 bottom-32 sm:right-0 sm:bottom-0 shadow shadow-pink-100 bg-pink-200/10'
+        className="absolute bottom-32 right-28 mx-auto flex h-14 w-60 items-center justify-center gap-4 rounded-2xl bg-pink-200/10 px-4 shadow shadow-pink-100 dark:bg-gray-700 dark:hover:bg-gray-800 sm:relative sm:bottom-0 sm:right-0 sm:items-end sm:pb-2"
       >
         {SOCAIL_LINKS.map((l, i) => (
           <AppIcon mouseX={mouseX} key={i} link={l} />
         ))}
       </motion.div>
     </div>
-  )
+  );
 }
 
 function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
-  let ref = useRef<HTMLDivElement>(null)
+  let ref = useRef<HTMLDivElement>(null);
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? {
@@ -79,33 +78,33 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
       width: 0,
       y: 0,
       height: 0
-    }
+    };
     // check if window is defined
-    if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2
+    if (typeof window === 'undefined') return val - bounds.x - bounds.width / 2;
 
-    const windowWidth = window.innerWidth
+    const windowWidth = window.innerWidth;
     if (windowWidth <= 640) {
-      return val - bounds.y - bounds.height / 2
+      return val - bounds.y - bounds.height / 2;
     }
 
-    return val - bounds.x - bounds.width / 2
-  })
+    return val - bounds.x - bounds.width / 2;
+  });
 
-  let widthSync = useTransform(distance, [-100, 0, 100], [40, 70, 40])
+  let widthSync = useTransform(distance, [-100, 0, 100], [40, 70, 40]);
 
-  let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 })
+  let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
 
   return (
     <motion.div
       ref={ref}
       style={{ width }}
-      className='aspect-square w-10 rounded-full hover:shadow-xl dark:bg-slate-400 p-1 -rotate-90 sm:rotate-0 shrink-0 transition-colors duration-100 text-black hover:text-pink-500 dark:hover:text-pink-200'
+      className="aspect-square w-10 shrink-0 -rotate-90 rounded-full p-1 text-black transition-colors duration-100 hover:text-pink-500 hover:shadow-xl dark:bg-slate-400 dark:hover:text-pink-200 sm:rotate-0"
     >
       <Link
         href={link.url}
-        target='_blank'
-        rel='noopener noreferrer'
-        className='text-inherit'
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-inherit"
       >
         <Tooltip title={link.name}>
           <IconButton
@@ -115,10 +114,10 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
               color: 'inherit'
             }}
           >
-            <link.icon className='text-inherit' />
+            <link.icon className="text-inherit" />
           </IconButton>
         </Tooltip>
       </Link>
     </motion.div>
-  )
+  );
 }
