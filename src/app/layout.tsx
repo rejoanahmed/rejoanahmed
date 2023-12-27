@@ -43,7 +43,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Navbar />
-          <div className="mx-auto max-w-4xl flex-grow pt-24">{children}</div>
+          <div className="mx-auto w-full max-w-4xl  flex-grow pt-24">
+            {children}
+          </div>
           <Footer />
         </ThemeProvider>
       </body>

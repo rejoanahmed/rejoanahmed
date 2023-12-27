@@ -14,7 +14,6 @@ function GridLine({ className }: { className?: string }) {
   if (!mounted) {
     return null;
   }
-  console.log(resolvedTheme, className ?? 'none');
   const cls = resolvedTheme === 'dark' ? 'gridLine-Dark' : 'gridLine-Light';
   return <div className={cls + ' ' + className ?? ''}></div>;
 }
