@@ -12,7 +12,7 @@ function Footer() {
             I am always open to new opportunities and collaborations. Feel free
             to reach out to me.
           </p>
-          <ContactList />
+          <ContactList responsive={false} />
         </div>
       </div>
     </footer>

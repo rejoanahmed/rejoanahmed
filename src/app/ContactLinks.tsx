@@ -41,13 +41,21 @@ const SOCAIL_LINKS = [
 
 type LINKTYPE = (typeof SOCAIL_LINKS)[number];
 
-export default function ContactList() {
+export default function ContactList({
+  responsive = true
+}: {
+  responsive?: boolean;
+}) {
   let mouseX = useMotionValue(Infinity);
 
   const { width: windowWidth } = useWindowSize();
 
   return (
-    <div className="realtive group flex rotate-90 justify-center sm:rotate-0">
+    <div
+      className={`realtive group flex ${
+        responsive && 'rotate-90'
+      } justify-center sm:rotate-0`}
+    >
       <div className="absolute -left-28 -mt-3 hidden sm:block">
         <h3 className="text-rose-700/10 underline transition-colors duration-200 group-hover:text-rose-700/50">
           Contacts:
@@ -59,17 +67,27 @@ export default function ContactList() {
           mouseX.set(val);
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="absolute bottom-32 right-28 mx-auto flex h-14 w-60 items-center justify-center gap-4 rounded-2xl bg-pink-200/10 px-4 shadow shadow-pink-100 dark:bg-gray-700 dark:hover:bg-gray-800 sm:relative sm:bottom-0 sm:right-0 sm:items-end sm:pb-2"
+        className={`${
+          responsive && 'absolute items-center'
+        } bottom-32 right-28 mx-auto flex h-14 w-60 justify-center gap-4 rounded-2xl bg-pink-200/10 px-4 shadow shadow-pink-100 dark:bg-gray-700 dark:hover:bg-gray-800 sm:relative sm:bottom-0 sm:right-0 sm:items-end sm:pb-2`}
       >
         {SOCAIL_LINKS.map((l, i) => (
-          <AppIcon mouseX={mouseX} key={i} link={l} />
+          <AppIcon mouseX={mouseX} key={i} link={l} responsive={responsive} />
         ))}
       </motion.div>
     </div>
   );
 }
 
-function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
+function AppIcon({
+  mouseX,
+  link,
+  responsive = true
+}: {
+  mouseX: MotionValue;
+  link: LINKTYPE;
+  responsive?: boolean;
+}) {
   let ref = useRef<HTMLDivElement>(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -98,7 +116,9 @@ function AppIcon({ mouseX, link }: { mouseX: MotionValue; link: LINKTYPE }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square w-10 shrink-0 -rotate-90 rounded-full p-1 text-black transition-colors duration-100 hover:text-pink-500 hover:shadow-xl dark:bg-slate-400 dark:hover:text-pink-200 sm:rotate-0"
+      className={`aspect-square w-10 shrink-0 ${
+        responsive && '-rotate-90'
+      } rounded-full p-1 text-black transition-colors duration-100 hover:text-pink-500 hover:shadow-xl dark:bg-slate-400 dark:hover:text-pink-200 sm:rotate-0`}
     >
       <Link
         href={link.url}
