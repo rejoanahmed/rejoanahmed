@@ -68,8 +68,8 @@ export default function ContactList({
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
         className={`${
-          responsive && 'absolute items-center'
-        } bottom-32 right-28 mx-auto flex h-14 w-60 justify-center gap-4 rounded-2xl bg-pink-200/10 px-4 shadow shadow-pink-100 dark:bg-gray-700 dark:hover:bg-gray-800 sm:relative sm:bottom-0 sm:right-0 sm:items-end sm:pb-2`}
+          responsive && 'absolute'
+        } bottom-32 right-28 mx-auto flex h-14 w-60 items-center justify-center gap-4 rounded-2xl bg-pink-200/10 px-4 shadow shadow-pink-100 dark:bg-gray-700 dark:hover:bg-gray-800 sm:relative sm:bottom-0 sm:right-0 sm:items-end sm:pb-2`}
       >
         {SOCAIL_LINKS.map((l, i) => (
           <AppIcon mouseX={mouseX} key={i} link={l} responsive={responsive} />
@@ -115,8 +115,8 @@ function AppIcon({
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
-      className={`aspect-square w-10 shrink-0 ${
+      style={{ width, height: width }}
+      className={`aspect-square h-10 w-10 shrink-0 ${
         responsive && '-rotate-90'
       } rounded-full p-1 text-black transition-colors duration-100 hover:text-pink-500 hover:shadow-xl dark:bg-slate-400 dark:hover:text-pink-200 sm:rotate-0`}
     >
