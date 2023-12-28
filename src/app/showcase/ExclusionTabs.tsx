@@ -14,7 +14,7 @@ function AnimatedTabs() {
   let [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className="flex space-x-1">
+    <div className="z-10 flex space-x-1 rounded-md bg-slate-200 px-3 py-2">
       {tabs.map((tab) => (
         <button
           key={tab.id}

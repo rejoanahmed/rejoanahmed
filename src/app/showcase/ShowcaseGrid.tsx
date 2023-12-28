@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Paper } from '@mui/material';
+import HoverCard from './HoverCard';
 
 export default function ShowCaseGrid({ data }: { data: any[] }) {
   const matchesXS = useMediaQuery('(max-width:900px)');
@@ -26,45 +27,54 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
         <ImageListItem key={item.img ?? item.comp}>
           <Paper
             elevation={3}
-            className="overflow-hidden rounded-lg bg-gradient-radial from-slate-400 to-slate-900"
+            className="duration-3 overflow-hidden rounded-xl transition hover:shadow-2xl"
           >
-            {item.img ? (
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src={`${item.img}?w=848&fit=crop&auto=format`}
-                  alt={item.title}
-                  objectFit="cover"
-                  objectPosition="top"
-                  loading="lazy"
-                  fill
-                  className="my-0"
+            <HoverCard>
+              <div className="z-10">
+                {item.img ? (
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <Image
+                      src={`${item.img}?w=848&fit=crop&auto=format`}
+                      alt={item.title}
+                      objectFit="cover"
+                      objectPosition="top"
+                      loading="lazy"
+                      fill
+                      className="my-0"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex justify-center px-4 py-20">
+                    <item.comp />
+                  </div>
+                )}
+                <ImageListItemBar
+                  title={item.title}
+                  subtitle={item.description ?? ''}
+                  sx={{
+                    background:
+                      'linear-gradient(to top, rgba(0,0,0,0.6) 0%, ' +
+                      'rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)'
+                  }}
+                  actionIcon={
+                    item.href ? (
+                      <IconButton
+                        sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                        aria-label={`info about ${item.title}`}
+                      >
+                        <Link
+                          href={item.href || ''}
+                          target="_blank"
+                          className="hover:animate-ping"
+                        >
+                          <NorthEastIcon />
+                        </Link>
+                      </IconButton>
+                    ) : null
+                  }
                 />
               </div>
-            ) : (
-              <div className="flex justify-center px-4 py-20">
-                <item.comp />
-              </div>
-            )}
-            <ImageListItemBar
-              title={item.title}
-              subtitle={item.description ?? ''}
-              actionIcon={
-                item.href ? (
-                  <IconButton
-                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                    aria-label={`info about ${item.title}`}
-                  >
-                    <Link
-                      href={item.href || ''}
-                      target="_blank"
-                      className="hover:animate-ping"
-                    >
-                      <NorthEastIcon />
-                    </Link>
-                  </IconButton>
-                ) : null
-              }
-            />
+            </HoverCard>
           </Paper>
         </ImageListItem>
       ))}
