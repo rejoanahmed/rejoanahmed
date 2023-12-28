@@ -21,7 +21,7 @@ function AnimatedTabs() {
           onClick={() => setActiveTab(tab.id)}
           className={`${
             activeTab === tab.id ? '' : 'hover:text-slate-900/60'
-          } relative rounded-full px-3 py-1.5 text-sm font-medium text-slate-800 outline-sky-400 transition focus-visible:outline-2 dark:text-white`}
+          } relative rounded-full px-3 py-1.5 text-sm font-medium text-slate-800 outline-sky-400 transition focus-visible:outline-2 dark:text-black`}
           style={{
             WebkitTapHighlightColor: 'transparent'
           }}

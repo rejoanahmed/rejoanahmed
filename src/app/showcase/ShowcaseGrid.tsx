@@ -32,7 +32,10 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
             }
           }}
         >
-          <Paper elevation={3}>
+          <Paper
+            elevation={3}
+            className="overflow-hidden rounded-lg bg-gradient-radial from-slate-400 to-slate-900"
+          >
             {item.img ? (
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
@@ -59,7 +62,11 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
                     sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                     aria-label={`info about ${item.title}`}
                   >
-                    <Link href={item.href || ''} target="_blank">
+                    <Link
+                      href={item.href || ''}
+                      target="_blank"
+                      className="hover:animate-ping"
+                    >
                       <NorthEastIcon />
                     </Link>
                   </IconButton>
