@@ -8,6 +8,7 @@ import NorthEastIcon from '@mui/icons-material/NorthEast';
 import Image from 'next/image';
 import Link from 'next/link';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { Paper } from '@mui/material';
 
 export default function ShowCaseGrid({ data }: { data: any[] }) {
   const matchesXS = useMediaQuery('(max-width:900px)');
@@ -20,39 +21,35 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
   }
 
   return (
-    <ImageList variant="masonry" cols={cols}>
-      {data.map((item) =>
-        item.img ? (
-          <ImageListItem key={item.img}>
-            <Image
-              src={`${item.img}?w=848&fit=crop&auto=format`}
-              alt={item.title}
-              layout="responsive"
-              objectFit="cover"
-              width={248}
-              height={248}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={item.title}
-              subtitle={item.description ?? ''}
-              actionIcon={
-                <IconButton
-                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                  aria-label={`info about ${item.title}`}
-                >
-                  <Link href={item.href || ''} target="_blank">
-                    <NorthEastIcon />
-                  </Link>
-                </IconButton>
-              }
-            />
-          </ImageListItem>
-        ) : (
-          <ImageListItem key={item.comp}>
-            <div className="py-20">
-              <item.comp />
-            </div>
+    <ImageList variant="masonry" cols={cols} gap={16}>
+      {data.map((item) => (
+        <ImageListItem
+          key={item.img ?? item.comp}
+          sx={{
+            '&': {
+              padding: 0,
+              overflow: 'hidden'
+            }
+          }}
+        >
+          <Paper elevation={3}>
+            {item.img ? (
+              <div className="relative h-56 w-full overflow-hidden">
+                <Image
+                  src={`${item.img}?w=848&fit=crop&auto=format`}
+                  alt={item.title}
+                  objectFit="cover"
+                  objectPosition="top"
+                  loading="lazy"
+                  fill
+                  className="my-0"
+                />
+              </div>
+            ) : (
+              <div className="flex justify-center px-4 py-20">
+                <item.comp />
+              </div>
+            )}
             <ImageListItemBar
               title={item.title}
               subtitle={item.description ?? ''}
@@ -69,9 +66,9 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
                 ) : null
               }
             />
-          </ImageListItem>
-        )
-      )}
+          </Paper>
+        </ImageListItem>
+      ))}
     </ImageList>
   );
 }
