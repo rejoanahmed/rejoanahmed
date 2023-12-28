@@ -33,7 +33,7 @@ import ShowCaseGrid from './ShowcaseGrid';
 
 export default function page() {
   return (
-    <div className="not-prose -mx-10 overflow-hidden md:mx-0">
+    <div className="not-prose -mx-10 mb-10 overflow-hidden md:mx-0">
       <ShowCaseGrid data={itemData} />
     </div>
   );

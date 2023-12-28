@@ -15,7 +15,7 @@ export default function HoverCard() {
 
   return (
     <div
-      className="group relative max-w-md rounded-xl border border-white/10 bg-gray-900 px-8 py-16 shadow-2xl"
+      className="bg-pink group relative max-w-md rounded-xl border border-white/50 bg-white px-8 py-16 shadow-2xl"
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -23,8 +23,8 @@ export default function HoverCard() {
         style={{
           background: useMotionTemplate`
             radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(14, 165, 233, 0.15),
+              250px circle at ${mouseX}px ${mouseY}px,
+              rgb(190, 24, 93, 0.15),
               transparent 80%
             )
           `
@@ -35,11 +35,11 @@ export default function HoverCard() {
           Full Stack Web Developer
         </h3>
         <div className="mt-2 flex items-center gap-x-2">
-          <span className="text-5xl font-bold tracking-tight text-white">
+          <span className="text-5xl font-bold tracking-tight text-black">
             Rejoan Ahmed
           </span>
         </div>
-        <p className="mt-6 text-base leading-7 text-gray-300">
+        <p className="mt-6 text-base leading-7 text-gray-700">
           Full Stack Web Developer. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Sint, molestias.
         </p>

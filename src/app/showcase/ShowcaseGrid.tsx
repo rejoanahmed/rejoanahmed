@@ -23,15 +23,7 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
   return (
     <ImageList variant="masonry" cols={cols} gap={16}>
       {data.map((item) => (
-        <ImageListItem
-          key={item.img ?? item.comp}
-          sx={{
-            '&': {
-              padding: 0,
-              overflow: 'hidden'
-            }
-          }}
-        >
+        <ImageListItem key={item.img ?? item.comp}>
           <Paper
             elevation={3}
             className="overflow-hidden rounded-lg bg-gradient-radial from-slate-400 to-slate-900"
