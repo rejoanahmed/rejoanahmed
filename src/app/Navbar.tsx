@@ -6,9 +6,8 @@ import ToggleTheme from './toggleTheme';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' }
-  // { href: '/showcase', label: 'Showcase' },
-  // { href: '/devlog', label: 'Devlog' }
+  { href: '/work', label: 'Work' },
+  { href: '/showcase', label: 'Showcase' }
 ];
 
 function Navbar() {
