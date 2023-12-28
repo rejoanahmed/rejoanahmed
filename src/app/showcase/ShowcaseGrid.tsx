@@ -18,35 +18,60 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
   } else {
     cols = 2;
   }
+
   return (
     <ImageList variant="masonry" cols={cols}>
-      {data.map((item) => (
-        <ImageListItem key={item.img}>
-          <Image
-            src={`${item.img}?w=848&fit=crop&auto=format`}
-            alt={item.title}
-            layout="responsive"
-            objectFit="cover"
-            width={248}
-            height={248}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={item.title}
-            subtitle={item.description ?? ''}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${item.title}`}
-              >
-                <Link href={item.href || ''} target="_blank">
-                  <NorthEastIcon />
-                </Link>
-              </IconButton>
-            }
-          />
-        </ImageListItem>
-      ))}
+      {data.map((item) =>
+        item.img ? (
+          <ImageListItem key={item.img}>
+            <Image
+              src={`${item.img}?w=848&fit=crop&auto=format`}
+              alt={item.title}
+              layout="responsive"
+              objectFit="cover"
+              width={248}
+              height={248}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.description ?? ''}
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                  aria-label={`info about ${item.title}`}
+                >
+                  <Link href={item.href || ''} target="_blank">
+                    <NorthEastIcon />
+                  </Link>
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        ) : (
+          <ImageListItem key={item.comp}>
+            <div className="py-20">
+              <item.comp />
+            </div>
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.description ?? ''}
+              actionIcon={
+                item.href ? (
+                  <IconButton
+                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                    aria-label={`info about ${item.title}`}
+                  >
+                    <Link href={item.href || ''} target="_blank">
+                      <NorthEastIcon />
+                    </Link>
+                  </IconButton>
+                ) : null
+              }
+            />
+          </ImageListItem>
+        )
+      )}
     </ImageList>
   );
 }

@@ -10,9 +10,9 @@ const itemData = [
     featured: true
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-    author: '@rollelflex_graphy726'
+    comp: ExclusionTabs,
+    title: 'Eclusion Tabs',
+    description: 'animated tabs built with framer motion'
   },
   {
     img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
@@ -74,6 +74,7 @@ const itemData = [
   }
 ];
 
+import ExclusionTabs from './ExclusionTabs';
 import ShowCaseGrid from './ShowcaseGrid';
 
 export default function page() {
