@@ -15,9 +15,9 @@ const itemData = [
     description: 'animated tabs built with framer motion'
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-    author: '@helloimnik'
+    comp: MacDock,
+    title: 'mimicing Mac OS Dock',
+    description: 'animated dock items built with framer motion'
   },
   {
     img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
@@ -75,6 +75,7 @@ const itemData = [
 ];
 
 import ExclusionTabs from './ExclusionTabs';
+import MacDock from './Macdock';
 import ShowCaseGrid from './ShowcaseGrid';
 
 export default function page() {

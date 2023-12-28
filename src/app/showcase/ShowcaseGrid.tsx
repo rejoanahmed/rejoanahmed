@@ -10,7 +10,7 @@ import Link from 'next/link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function ShowCaseGrid({ data }: { data: any[] }) {
-  const matchesXS = useMediaQuery('(max-width:600px)');
+  const matchesXS = useMediaQuery('(max-width:900px)');
 
   let cols;
   if (matchesXS) {
