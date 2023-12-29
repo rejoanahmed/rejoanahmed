@@ -9,6 +9,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Paper } from '@mui/material';
+import { useAtomValue } from 'jotai';
+import { filterAtom } from './state';
+import { Filters } from '../constants';
+import { motion } from 'framer-motion';
 
 export default function ShowCaseGrid({ data }: { data: any[] }) {
   const matchesXS = useMediaQuery('(max-width:900px)');
@@ -20,13 +24,34 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
     cols = 2;
   }
 
+  const filters = useAtomValue(filterAtom);
+
+  if (filters.length > 0 && !filters.includes('All')) {
+    data = data.filter((item) => {
+      if (item.tags) {
+        return item.tags.some((tag: (typeof Filters)[number]) =>
+          filters.includes(tag)
+        );
+      }
+      return false;
+    });
+  }
+
   return (
-    <ImageList variant="masonry" cols={cols} gap={16}>
+    <ImageList
+      // component={motion.div}
+      // layout
+      variant="masonry"
+      cols={cols}
+      gap={16}
+    >
       {data.map((item) => (
-        <ImageListItem key={item.img ?? item.comp}>
+        <ImageListItem component={motion.div} key={item.img ?? item.comp}>
           <Paper
-            elevation={3}
-            className="duration-3 overflow-hidden rounded-xl transition hover:shadow-2xl"
+            elevation={1}
+            className={`duration-3 overflow-hidden rounded-xl grayscale-0 hover:shadow-md ${
+              item.href ? 'cursor-pointer' : ''
+            }`}
           >
             <div className="z-10">
               {item.img ? (
@@ -34,11 +59,9 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
                   <Image
                     src={`${item.img}?w=848&fit=crop&auto=format`}
                     alt={item.title}
-                    objectFit="cover"
-                    objectPosition="top"
-                    loading="lazy"
                     fill
-                    className="my-0"
+                    className="my-0 object-cover object-top"
+                    priority
                   />
                 </div>
               ) : (
@@ -51,13 +74,21 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
                 subtitle={item.description ?? ''}
                 sx={{
                   background:
-                    'linear-gradient(to top, rgba(0,0,0,0.6) 0%, ' +
-                    'rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)'
+                    'linear-gradient(to top, rgba(0,0,0,0.4) 0%, ' +
+                    'rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%)',
+                  backdropFilter: 'blur(5px)'
                 }}
                 actionIcon={
                   item.href ? (
                     <IconButton
-                      sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                      sx={{
+                        color: 'rgba(255, 255, 255, 0.54)',
+                        width: '3rem',
+                        height: '3rem',
+                        '&:hover': {
+                          background: 'gray'
+                        }
+                      }}
                       aria-label={`info about ${item.title}`}
                     >
                       <Link
@@ -65,7 +96,7 @@ export default function ShowCaseGrid({ data }: { data: any[] }) {
                         target="_blank"
                         className="hover:animate-ping"
                       >
-                        <NorthEastIcon />
+                        <NorthEastIcon color="secondary" />
                       </Link>
                     </IconButton>
                   ) : null

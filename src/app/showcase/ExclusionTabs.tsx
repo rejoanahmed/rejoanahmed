@@ -14,9 +14,10 @@ function AnimatedTabs() {
   let [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className="z-10 flex space-x-1 rounded-md bg-slate-200 px-3 py-2">
+    <motion.div className="z-10 flex space-x-1 rounded-md bg-slate-200 px-3 py-2">
       {tabs.map((tab) => (
-        <button
+        <motion.button
+          layout
           key={tab.id}
           onClick={() => setActiveTab(tab.id)}
           className={`${
@@ -35,9 +36,9 @@ function AnimatedTabs() {
             />
           )}
           {tab.label}
-        </button>
+        </motion.button>
       ))}
-    </div>
+    </motion.div>
   );
 }
 

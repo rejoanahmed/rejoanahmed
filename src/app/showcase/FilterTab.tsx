@@ -2,14 +2,16 @@
 import { useEffect, useState } from 'react';
 import styles from './FilterTab.module.css';
 import { Filters } from '../constants';
+import { useAtom } from 'jotai';
+import { filterAtom } from './state';
 
 function FilterTab() {
-  const [selected, setSelected] = useState<(typeof Filters)[number][]>(['All']);
+  const [selected, setSelected] = useAtom(filterAtom);
   useEffect(() => {
     if (selected.length === 0) {
       setSelected(['All']);
     }
-  }, [selected]);
+  }, [selected, setSelected]);
   return (
     <div className="flex justify-center py-8">
       <div className={styles['filter-group'] + ' mx-8 flex-wrap gap-1'}>
