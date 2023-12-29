@@ -27,6 +27,7 @@ const itemData = [
 ];
 
 import ExclusionTabs from './ExclusionTabs';
+import FilterTab from './FilterTab';
 import HoverCard from './HoverCard';
 import MacDock from './Macdock';
 import ShowCaseGrid from './ShowcaseGrid';
@@ -34,6 +35,7 @@ import ShowCaseGrid from './ShowcaseGrid';
 export default function page() {
   return (
     <div className="not-prose -mx-10 mb-10 overflow-hidden md:mx-0">
+      <FilterTab />
       <ShowCaseGrid data={itemData} />
     </div>
   );
