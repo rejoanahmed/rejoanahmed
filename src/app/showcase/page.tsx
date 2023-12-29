@@ -3,7 +3,7 @@ const itemData = [
     img: '/showcase/calmi.png',
     title: 'A therapeutic chatbot, built with GPT',
     description:
-      'The Cahtbot is programmed to help you with your mental health issues and it has custom system messages at every step of the way.',
+      'The Chatbot is programmed to help you with your mental health issues and it has custom system messages at every step of the way.',
     rows: 2,
     cols: 2,
     href: 'https://cbtchat.vercel.app/',

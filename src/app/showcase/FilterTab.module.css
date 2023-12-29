@@ -19,13 +19,9 @@
     color;
 }
 
-.filter + .filter {
-  margin-left: 8px;
-}
-
 .filter.selected + .filter.selected {
   z-index: 0;
-  margin-left: -16px;
+  margin-left: -22px;
   padding-left: 28px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

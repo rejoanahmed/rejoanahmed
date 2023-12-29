@@ -1,13 +1,18 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './FilterTab.module.css';
 import { Filters } from '../constants';
 
 function FilterTab() {
   const [selected, setSelected] = useState<(typeof Filters)[number][]>(['All']);
+  useEffect(() => {
+    if (selected.length === 0) {
+      setSelected(['All']);
+    }
+  }, [selected]);
   return (
     <div className="flex justify-center py-8">
-      <div className={styles['filter-group']}>
+      <div className={styles['filter-group'] + ' mx-8 flex-wrap gap-1'}>
         {Filters.map((filter, index) => (
           <button
             key={index}
