@@ -12,6 +12,9 @@ const inter = Roboto({
 
 export const metadata: Metadata = {
   title: 'Rejoan Ahmed',
+  verification: {
+    google: 'XkbYWVsb6Tk2JuXpaNbWp35RrF5YTo6Dr9c7H7p2NdQ'
+  },
   description:
     'Hi there, I am Rejoan Ahmed. I am a full-stack developer. I love to build things for the web.',
   icons: [
