@@ -33,11 +33,11 @@ export default function Home() {
         <div className="mx-auto max-w-[180]">
           <Image
             priority
-            src="/me/4.png"
+            src="/me/me6.png"
             width={180}
             height={150}
             alt="Rejoan Ahmed"
-            className="gradient-container mx-auto my-0 mb-6 mt-8 block h-auto w-auto rounded-full border-b-4 border-pink-500 shadow-xl"
+            className="gradient-container mx-auto my-0 mb-6 mt-8 block h-auto w-auto rounded-full shadow-xl"
           />
           <ContactList />
         </div>
