@@ -19,11 +19,6 @@ jobs:
           token: ${{ secrets.METRICS }}
           # Options
           user: rejoanahmed
+          template: classic
+          base: header, activity, community, repositories, metadata
           config_timezone: Asia/Hong_Kong
-          plugin_wakatime: yes
-          plugin_wakatime_days: 7
-          plugin_wakatime_limit: 5
-          plugin_wakatime_repositories_visibility: all
-          plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
-          plugin_wakatime_url: https://wakatime.com
-          plugin_wakatime_user: 018e16ba-c3f8-4eab-bc8c-893d62bd3325
