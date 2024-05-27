@@ -1,3 +1,5 @@
+<h1>Hi I'm Rejoan.</h1>
+<p>Building product is my passion but Not a big fan of coding : ) </p>
 <table>
   <tr>
     <td valign="top"><img src="/github-metrics.svg" alt="Metrics" width="400"></td>
