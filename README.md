@@ -1,5 +1,16 @@
-<h1>Hi I'm Rejoan.</h1>
-<p>Building product is my passion but Not a big fan of coding : ) </p>
+# Hi, I'm Rejoan. 👋  
+
+🚀 **Building products is my passion**—but I’m not the biggest fan of coding 😉.  
+💡 I focus on creating solutions that matter, leveraging technology to bring ideas to life.  
+
+## What I’m working on  
+- 🔹 Building **[Rovierr](https://rovierr.com/)**, a collection of productivity tools for the day-to-day work.
+- 🔹 Exploring scalable architectures for SaaS and microservices.  
+- 🔹 Learning new ways to optimize developer experience.  
+
+## Let's connect!  
+📫 Reach out on [LinkedIn](https://www.linkedin.com/in/rejoan-ahmed-/) or check out my work here on GitHub.  
+
 <table>
 <!--   <tr>
     <td valign="top"><img src="/github-metrics.svg" alt="Metrics" width="400"></td>
