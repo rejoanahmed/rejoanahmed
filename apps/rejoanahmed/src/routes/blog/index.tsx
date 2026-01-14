@@ -8,7 +8,7 @@ export const Route = createFileRoute('/blog/')({
   head: () => ({
     meta: [
       ...seo({
-        title: 'Blog | TSS Blog Starter'
+        title: 'Blog | Rejoan Ahmed'
       })
     ]
   }),

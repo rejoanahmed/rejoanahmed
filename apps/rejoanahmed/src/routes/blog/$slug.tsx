@@ -27,7 +27,7 @@ export const Route = createFileRoute('/blog/$slug')({
     meta: loaderData
       ? [
           ...seo({
-            title: `${loaderData?.post.title} | TSS Blog Starter`,
+            title: `${loaderData?.post.title} | Rejoan Ahmed`,
             description: loaderData?.post.description
           })
         ]
