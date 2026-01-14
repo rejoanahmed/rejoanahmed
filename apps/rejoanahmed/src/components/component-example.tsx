@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   BluetoothIcon,
@@ -28,9 +28,9 @@ import {
   SettingsIcon,
   ShieldIcon,
   SunIcon,
-  UserIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+  UserIcon
+} from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -41,10 +41,10 @@ import {
   AlertDialogHeader,
   AlertDialogMedia,
   AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@rex/ui/components/alert-dialog";
-import { Badge } from "@rex/ui/components/badge";
-import { Button } from "@rex/ui/components/button";
+  AlertDialogTrigger
+} from '@rex/ui/components/alert-dialog'
+import { Badge } from '@rex/ui/components/badge'
+import { Button } from '@rex/ui/components/button'
 import {
   Card,
   CardAction,
@@ -52,16 +52,16 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "@rex/ui/components/card";
+  CardTitle
+} from '@rex/ui/components/card'
 import {
   Combobox,
   ComboboxContent,
   ComboboxEmpty,
   ComboboxInput,
   ComboboxItem,
-  ComboboxList,
-} from "@rex/ui/components/combobox";
+  ComboboxList
+} from '@rex/ui/components/combobox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -77,21 +77,21 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@rex/ui/components/dropdown-menu";
-import { Field, FieldGroup, FieldLabel } from "@rex/ui/components/field";
-import { Input } from "@rex/ui/components/input";
+  DropdownMenuTrigger
+} from '@rex/ui/components/dropdown-menu'
+import { Field, FieldGroup, FieldLabel } from '@rex/ui/components/field'
+import { Input } from '@rex/ui/components/input'
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "@rex/ui/components/select";
-import { Textarea } from "@rex/ui/components/textarea";
-import * as React from "react";
-import { Example, ExampleWrapper } from "@/components/example";
+  SelectValue
+} from '@rex/ui/components/select'
+import { Textarea } from '@rex/ui/components/textarea'
+import * as React from 'react'
+import { Example, ExampleWrapper } from '@/components/example'
 
 export function ComponentExample() {
   return (
@@ -99,7 +99,7 @@ export function ComponentExample() {
       <CardExample />
       <FormExample />
     </ExampleWrapper>
-  );
+  )
 }
 
 function CardExample() {
@@ -108,7 +108,7 @@ function CardExample() {
       <Card className="relative w-full max-w-sm overflow-hidden pt-0">
         <div className="absolute inset-0 z-30 aspect-video bg-primary opacity-50 mix-blend-color" />
         <img
-          alt="Photo by mymind on Unsplash"
+          alt="by mymind on Unsplash"
           className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale"
           src="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           title="Photo by mymind on Unsplash"
@@ -154,31 +154,31 @@ function CardExample() {
         </CardFooter>
       </Card>
     </Example>
-  );
+  )
 }
 
 const frameworks = [
-  "Next.js",
-  "SvelteKit",
-  "Nuxt.js",
-  "Remix",
-  "Astro",
-] as const;
+  'Next.js',
+  'SvelteKit',
+  'Nuxt.js',
+  'Remix',
+  'Astro'
+] as const
 
 const roleItems = [
-  { label: "Developer", value: "developer" },
-  { label: "Designer", value: "designer" },
-  { label: "Manager", value: "manager" },
-  { label: "Other", value: "other" },
-];
+  { label: 'Developer', value: 'developer' },
+  { label: 'Designer', value: 'designer' },
+  { label: 'Manager', value: 'manager' },
+  { label: 'Other', value: 'other' }
+]
 
 function FormExample() {
   const [notifications, setNotifications] = React.useState({
     email: true,
     sms: false,
-    push: true,
-  });
-  const [theme, setTheme] = React.useState("light");
+    push: true
+  })
+  const [theme, setTheme] = React.useState('light')
 
   return (
     <Example title="Form">
@@ -285,7 +285,7 @@ function FormExample() {
                     onCheckedChange={(checked) =>
                       setNotifications({
                         ...notifications,
-                        email: checked === true,
+                        email: checked === true
                       })
                     }
                   >
@@ -297,7 +297,7 @@ function FormExample() {
                     onCheckedChange={(checked) =>
                       setNotifications({
                         ...notifications,
-                        sms: checked === true,
+                        sms: checked === true
                       })
                     }
                   >
@@ -392,7 +392,7 @@ function FormExample() {
                                     onCheckedChange={(checked) =>
                                       setNotifications({
                                         ...notifications,
-                                        push: checked === true,
+                                        push: checked === true
                                       })
                                     }
                                   >
@@ -407,7 +407,7 @@ function FormExample() {
                                     onCheckedChange={(checked) =>
                                       setNotifications({
                                         ...notifications,
-                                        email: checked === true,
+                                        email: checked === true
                                       })
                                     }
                                   >
@@ -526,5 +526,5 @@ function FormExample() {
         </CardContent>
       </Card>
     </Example>
-  );
+  )
 }
