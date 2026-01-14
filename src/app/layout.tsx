@@ -11,12 +11,40 @@ const inter = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Rejoan Ahmed',
+  metadataBase: new URL('https://rejoanahmed.me'),
+  title: {
+    default: 'Rejoan Ahmed',
+    template: '%s | Rejoan Ahmed'
+  },
+  description: 'Developer, writer, and an eternal Student.',
+  openGraph: {
+    title: 'Rejoan Ahmed',
+    description: 'Developer, writer, and an eternal Student.',
+    url: 'https://rejoanahmed.me',
+    siteName: 'Rejoan Ahmed',
+    locale: 'en_US',
+    type: 'website'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
+  twitter: {
+    title: 'Rejoan Ahmed',
+    card: 'summary_large_image'
+  },
   verification: {
     google: 'XkbYWVsb6Tk2JuXpaNbWp35RrF5YTo6Dr9c7H7p2NdQ'
   },
-  description:
-    'Hi there, I am Rejoan Ahmed. I am a full-stack developer. I love to build things for the web.',
+  // description:
+  //   'Hi there, I am Rejoan Ahmed. I am a full-stack developer. I love to build things for the web.',
   icons: [
     {
       rel: 'icon',
