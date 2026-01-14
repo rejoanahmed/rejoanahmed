@@ -2,7 +2,11 @@ import appCss from '@rex/ui/globals.css?url'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { DefaultCatchBoundary } from '@/components/default-catch-boundary'
+import { MainNav } from '@/components/main-nav'
+import { NotFound } from '@/components/notfound'
 import { ThemeProvider } from '@/components/theme-provider'
+import { seo } from '@/lib/seo'
 import mdxCss from '@/styles/mdx.css?url'
 
 export const Route = createRootRoute({
@@ -17,9 +21,36 @@ export const Route = createRootRoute({
       },
       {
         title: 'Rejoan Ahmed'
-      }
+      },
+      ...seo({
+        title: 'Rejoan Ahmed',
+        description:
+          'Rejoan Ahmed is a software engineer and a passionate developer.',
+        // image: ogImage,z
+        keywords:
+          'software engineer, developer, javascript, typescript, react, reactjs, open source, open source software, oss, software, blog, starter, tanstack start, tailwind, seo, seo optimization, seo best practices'
+      })
     ],
     links: [
+      // {
+      //    rel: "apple-touch-icon",
+      //    sizes: "180x180",
+      //    href: "/apple-touch-icon.png",
+      //  },
+      //  {
+      //    rel: "icon",
+      //    type: "image/png",
+      //    sizes: "32x32",
+      //    href: "/favicon-32x32.png",
+      //  },
+      //  {
+      //    rel: "icon",
+      //    type: "image/png",
+      //    sizes: "16x16",
+      //    href: "/favicon-16x16.png",
+      //  },
+      //  { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
+      //  { rel: "icon", href: "/favicon.ico" },
       {
         rel: 'stylesheet',
         href: appCss
@@ -30,7 +61,14 @@ export const Route = createRootRoute({
       }
     ]
   }),
-
+  errorComponent: (props) => {
+    return (
+      <RootDocument>
+        <DefaultCatchBoundary {...props} />
+      </RootDocument>
+    )
+  },
+  notFoundComponent: () => <NotFound />,
   shellComponent: RootDocument
 })
 
@@ -42,7 +80,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
           <TanStackDevtools
             config={{
               position: 'bottom-right'
@@ -54,6 +91,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               }
             ]}
           />
+          <main className="flex-auto mt-6 flex flex-col px-2 md:px-0 min-h-screen mx-auto container">
+            <MainNav />
+            {children}
+          </main>
           <Scripts />
         </ThemeProvider>
       </body>

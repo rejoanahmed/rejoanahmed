@@ -1,0 +1,10 @@
+---
+title: SSH into Mac
+description: SSH into your Mac from anywhere using Termius and Tailscale.
+publishedAt: "2024-12-25"
+---
+So I wanted to be able to use my Mac even when I am not with my Mac. Like when traveling or going to hike. 
+
+And the immediate thought was ssh. So how do I ssh into my Mac from my phone? A quick research was enough to know about termius app that is available in app store. Termius is an ssh client and terminal. Turn on remote login in system settings in your mac. Turn off password login because we only should allow key based access. And that's it configure your IP address in your termius app and we can run commands. 
+
+But this required my phone and Mac to be connected to the same wifi. Basically my Mac is only available in local network. So how can I expose my Mac publicly but securely? I have been hearing about tailscale for some time in the DevOps world.  This was the perfect chance to give it a try. I installed tailscale in both my iphone and Mac. Tailscale creates a mesh VPN where only your registered devices can talk to each other and nobody else. That's it. With tailscale being enabled both my iphone and Mac gotta an IP address like 100.*.*.* . So now I just have to edit the IP configuration in termius app. Perfect! Now I can use my Mac even when I am traveling.
