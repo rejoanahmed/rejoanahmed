@@ -1,8 +1,9 @@
+import { ArrowLeft } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { buttonVariants } from '@rex/ui/components/button'
 import { cn } from '@rex/ui/lib/utils'
 import { createFileRoute, Link, redirect } from '@tanstack/react-router'
 import { allPosts } from 'content-collections'
-import { ChevronLeft } from 'lucide-react'
 import { Mdx } from '@/components/mdx-components'
 import { seo } from '@/lib/seo'
 import { formatDate } from '@/lib/utils'
@@ -47,7 +48,11 @@ function RouteComponent() {
           )}
           to="/blog"
         >
-          <ChevronLeft className="mr-2 h-4 w-4" />
+          <HugeiconsIcon
+            className="mr-2 h-4 w-4"
+            icon={ArrowLeft}
+            name="arrow-left"
+          />
           See all posts
         </Link>
         {/* TODO:  */}
@@ -74,7 +79,11 @@ function RouteComponent() {
 
         <div className="flex justify-center py-6 lg:py-10">
           <Link className={cn(buttonVariants({ variant: 'ghost' }))} to="/blog">
-            <ChevronLeft className="mr-2 h-4 w-4" />
+            <HugeiconsIcon
+              className="mr-2 h-4 w-4"
+              icon={ArrowLeft}
+              name="arrow-left"
+            />
             See all posts
           </Link>
         </div>
