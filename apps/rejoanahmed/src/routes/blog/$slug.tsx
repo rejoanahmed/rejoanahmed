@@ -24,6 +24,14 @@ export const Route = createFileRoute('/blog/$slug')({
 
     return { post }
   },
+  headers: () => ({
+    // ISR: Cache at CDN for 1 hour, allow stale content for up to 7 days
+    // This enables Incremental Static Regeneration
+    'Cache-Control':
+      'public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800',
+    // Cloudflare-specific header for finer control
+    'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=604800'
+  }),
   head: ({ loaderData }) => {
     const coverImagePath = loaderData?.post.coverImage
     return {
@@ -47,7 +55,7 @@ function RouteComponent() {
 
   return (
     <section className="">
-      <div className="container relative max-w-5xl">
+      <div className="container relative">
         <div className="xl:grid xl:grid-cols-[1fr_250px] xl:gap-8">
           <article className="relative max-w-3xl">
             {coverImagePath && (

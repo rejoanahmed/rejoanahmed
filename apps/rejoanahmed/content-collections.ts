@@ -20,7 +20,8 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     publishedAt: z.iso.date(),
-    coverImage: z.string().optional()
+    coverImage: z.string().optional(),
+    content: z.string()
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {

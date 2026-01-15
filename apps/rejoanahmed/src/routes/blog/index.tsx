@@ -5,6 +5,12 @@ import { seo } from '@/lib/seo'
 import { sortedPosts } from '@/lib/utils'
 
 export const Route = createFileRoute('/blog/')({
+  headers: () => ({
+    // ISR: Cache blog list for 1 hour, allow stale for 24 hours
+    'Cache-Control':
+      'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+    'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=86400'
+  }),
   head: () => ({
     meta: [
       ...seo({

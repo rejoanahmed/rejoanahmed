@@ -110,7 +110,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               }
             ]}
           />
-          <main className="flex-auto mt-6 flex flex-col px-2 md:px-0 min-h-screen mx-auto container">
+          <main className="flex-auto mt-6 px-2 md:px-0 min-h-screen container mx-auto max-w-5xl">
             <MainNav />
             {children}
           </main>

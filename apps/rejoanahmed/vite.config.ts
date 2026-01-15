@@ -17,9 +17,14 @@ const config = defineConfig({
       projects: ['./tsconfig.json']
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        // Prerender blog routes at build time, then use ISR for updates
+        filter: ({ path }) => path === '/blog' || path.startsWith('/blog/'),
+        crawlLinks: true
+      }
+    }),
     viteReact(),
-    // @ts-expect-error: type issue from upstream package
     contentCollections()
   ]
 })
