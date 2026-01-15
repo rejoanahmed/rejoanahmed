@@ -3,6 +3,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { buttonVariants } from '@rex/ui/components/button'
 import { cn } from '@rex/ui/lib/utils'
 import { createFileRoute, Link, redirect } from '@tanstack/react-router'
+import { Image } from '@unpic/react'
 import { allPosts } from 'content-collections'
 import { Mdx } from '@/components/mdx-components'
 import { TableOfContents } from '@/components/table-of-contents'
@@ -74,9 +75,11 @@ function RouteComponent() {
                   />
                   See all posts
                 </Link>
-                <img
+                <Image
                   alt={post.title}
                   className="w-full rounded-lg border object-cover"
+                  height={630}
+                  layout="fullWidth"
                   src={coverImagePath}
                 />
               </div>

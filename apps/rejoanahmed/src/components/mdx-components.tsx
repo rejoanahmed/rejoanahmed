@@ -1,5 +1,6 @@
 import { useMDXComponent } from '@content-collections/mdx/react'
 import { cn } from '@rex/ui/lib/utils'
+import { Image } from '@unpic/react'
 import type * as React from 'react'
 import { Callout } from '@/components/mdx-callout'
 import { MdxCard } from '@/components/mdx-card'
@@ -98,9 +99,20 @@ const components = {
   img: ({
     className,
     alt,
+    src,
+    width,
+    height,
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img alt={alt} className={cn('rounded-md border', className)} {...props} />
+    <Image
+      alt={alt || ''}
+      className={cn('rounded-md border', className)}
+      height={height ? Number(height) : 600}
+      layout="constrained"
+      src={src || ''}
+      width={width ? Number(width) : 800}
+      {...props}
+    />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
