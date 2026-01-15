@@ -9,19 +9,22 @@ coverImage: /blogs/ssh-into-mac/cover.png
 
 I often find myself traveling or going on short hikes, and there are moments when I suddenly need access to my Mac — maybe to run a script, check logs, or grab a file. Carrying my Mac everywhere isn't always practical, so I started looking for a way to use my Mac remotely from my phone.
 
-Naturally, my first thought was SSH.
+Naturally, my first thought was [SSH](https://www.ssh.com/academy/ssh/protocol).
 
 #### Step 1: SSH Into macOS (The Local Way)
 
-SSH is built into macOS and is surprisingly easy to enable.
+SSH is built into macOS and is surprisingly easy to enable. Here's how to set it up securely:
 
 1. Open **System Settings → General → Sharing**
 2. Turn on **Remote Login**
 3. Allow access only for your user
-4. **Disable password-based login**
+4. **Disable password-based login** (critical for security)
 5. Use SSH key-based authentication only
 
-On my iPhone, I used Termius, which is an excellent SSH client available on the App Store.
+For detailed instructions, check Apple's [official documentation on Remote Login](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+
+On my iPhone, I used [Termius](https://www.termius.com/), which is an excellent SSH client available on the [App Store](https://apps.apple.com/app/termius-ssh-client/id549039908). It's free, well-designed, and supports key-based authentication out of the box.
+
 After adding my Mac's local IP address to Termius, everything worked perfectly.
 
 …until I left my home Wi-Fi.
@@ -33,27 +36,29 @@ By default, SSH only works when:
 - Your phone and Mac are on the same local network
 - Or your Mac is publicly exposed (which is risky if done wrong)
 
-Port forwarding my home router felt like a bad idea. I wanted something:
+Port forwarding my home router felt like a bad idea. Not only does it expose your network to potential attacks, but it also requires router configuration that can break with network changes. I wanted something:
 
 - Secure by default
 - Zero-config
 - Device-only access
+- No router tinkering required
 
-That's when I finally gave Tailscale a real try.
+That's when I finally gave [Tailscale](https://tailscale.com/) a real try.
 
 #### Step 2: Enter Tailscale (Mesh VPN Magic)
 
-Tailscale creates a private mesh VPN using WireGuard.
-Only devices logged into your account can see and talk to each other.
+[Tailscale](https://tailscale.com/) creates a private mesh VPN using [WireGuard](https://www.wireguard.com/), one of the most secure and performant VPN protocols available. Only devices logged into your account can see and talk to each other — it's like having a private network that follows you everywhere.
 
-What I did:
+**What I did:**
 
-1. Installed Tailscale on my Mac
-2. Installed Tailscale on my iPhone
+1. Installed [Tailscale on my Mac](https://tailscale.com/download) (free tier is more than enough)
+2. Installed [Tailscale on my iPhone](https://apps.apple.com/app/tailscale/id1470499037) from the App Store
 3. Logged into the same account on both devices
-4. Enabled Tailscale
+4. Enabled Tailscale on both
 
-Instantly, both devices received private IPs like:
+That's it. No configuration, no port forwarding, no router changes.
+
+Instantly, both devices received private IPs in the `100.x.x.x` range:
 
 ```bash
 100.x.x.x
@@ -61,39 +66,61 @@ Instantly, both devices received private IPs like:
 
 These IPs are:
 
-- Not public
-- Not reachable by strangers
-- Only accessible inside your Tailscale network
+- **Not public** — they don't exist on the public internet
+- **Not reachable by strangers** — only your Tailscale devices can see them
+- **Only accessible inside your Tailscale network** — creating a secure tunnel between your devices
+
+Tailscale uses [NAT traversal](https://tailscale.com/kb/1082/how-nat-traversal-works/) to automatically connect devices, even through firewalls and NATs. It's genuinely impressive technology.
 
 #### Step 3: SSH Over Tailscale
 
 Now the final step was trivial:
 
-1. I replaced my local IP in Termius with the Tailscale IP
-2. Kept SSH key-based authentication
-3. Connected from anywhere — mobile data, public Wi-Fi, anywhere
+1. I found my Mac's Tailscale IP in the Tailscale app (or via `tailscale ip` in Terminal)
+2. Replaced my local IP in Termius with the Tailscale IP
+3. Kept SSH key-based authentication (no changes needed)
+4. Connected from anywhere — mobile data, public Wi-Fi, coffee shops, anywhere
 
-It just worked.
+It just worked. No port forwarding, no router configuration, no security concerns. Just secure SSH access from anywhere in the world.
+
+**Pro tip:** You can also use your Mac's hostname instead of the IP. Tailscale provides [MagicDNS](https://tailscale.com/kb/1081/magicdns/) which makes your devices accessible by name (e.g., `my-mac.tailscale-name.ts.net`).
 
 #### Why This Setup Is So Good
 
-🔐 No open ports
+🔐 **No open ports** — Your router stays closed, reducing attack surface
 
-🧠 No router configuration
+🧠 **No router configuration** — Works behind any firewall or NAT
 
-📱 Works perfectly from phone
+📱 **Works perfectly from phone** — Termius + Tailscale = mobile terminal access
 
-🌍 Secure access from anywhere
+🌍 **Secure access from anywhere** — Coffee shops, airports, hotels — anywhere with internet
 
-⚡ Near-zero latency
+⚡ **Near-zero latency** — WireGuard is fast, and Tailscale routes traffic efficiently
 
-This is one of those setups that feels obviously correct once you try it.
+🔒 **End-to-end encryption** — All traffic is encrypted using WireGuard's proven cryptography
+
+💰 **Free tier is generous** — Personal use is free for up to 100 devices
+
+This is one of those setups that feels obviously correct once you try it. It's secure, simple, and just works.
 
 #### Final Thoughts
 
 SSH was never the hard part.
 Secure networking was.
 
-Tailscale solves that problem so cleanly that it almost feels boring — which is exactly what you want from security tools.
+Tailscale solves that problem so cleanly that it almost feels boring — which is exactly what you want from security tools. The best security is invisible security.
 
-If you haven't tried it yet, this might be the perfect excuse.
+**What you need to get started:**
+
+- [Tailscale account](https://login.tailscale.com/start) (free)
+- [Tailscale for macOS](https://tailscale.com/download)
+- [Tailscale for iOS](https://apps.apple.com/app/tailscale/id1470499037)
+- [Termius for iOS](https://apps.apple.com/app/termius-ssh-client/id549039908) (or any SSH client)
+
+If you haven't tried it yet, this might be the perfect excuse. It takes about 5 minutes to set up and you'll wonder how you lived without it.
+
+**Further reading:**
+
+- [Tailscale documentation](https://tailscale.com/kb/)
+- [WireGuard protocol specification](https://www.wireguard.com/protocol/)
+- [SSH key management best practices](https://www.ssh.com/academy/ssh/key)
