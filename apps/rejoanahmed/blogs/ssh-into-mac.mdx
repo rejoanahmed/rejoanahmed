@@ -1,10 +1,99 @@
 ---
-title: SSH into Mac
+title: How I SSH Into My Mac From Anywhere (Securely) Using Tailscale
 description: SSH into your Mac from anywhere using Termius and Tailscale.
 publishedAt: "2024-12-25"
+coverImage: /blogs/ssh-into-mac/cover.png
 ---
-So I wanted to be able to use my Mac even when I am not with my Mac. Like when traveling or going to hike. 
 
-And the immediate thought was ssh. So how do I ssh into my Mac from my phone? A quick research was enough to know about termius app that is available in app store. Termius is an ssh client and terminal. Turn on remote login in system settings in your mac. Turn off password login because we only should allow key based access. And that's it configure your IP address in your termius app and we can run commands. 
+#### The Problem: I Wanted My Mac Everywhere
 
-But this required my phone and Mac to be connected to the same wifi. Basically my Mac is only available in local network. So how can I expose my Mac publicly but securely? I have been hearing about tailscale for some time in the DevOps world.  This was the perfect chance to give it a try. I installed tailscale in both my iphone and Mac. Tailscale creates a mesh VPN where only your registered devices can talk to each other and nobody else. That's it. With tailscale being enabled both my iphone and Mac gotta an IP address like 100.*.*.* . So now I just have to edit the IP configuration in termius app. Perfect! Now I can use my Mac even when I am traveling.
+I often find myself traveling or going on short hikes, and there are moments when I suddenly need access to my Mac — maybe to run a script, check logs, or grab a file. Carrying my Mac everywhere isn't always practical, so I started looking for a way to use my Mac remotely from my phone.
+
+Naturally, my first thought was SSH.
+
+#### Step 1: SSH Into macOS (The Local Way)
+
+SSH is built into macOS and is surprisingly easy to enable.
+
+1. Open **System Settings → General → Sharing**
+2. Turn on **Remote Login**
+3. Allow access only for your user
+4. **Disable password-based login**
+5. Use SSH key-based authentication only
+
+On my iPhone, I used Termius, which is an excellent SSH client available on the App Store.
+After adding my Mac's local IP address to Termius, everything worked perfectly.
+
+…until I left my home Wi-Fi.
+
+#### The Limitation: SSH Is Local by Default
+
+By default, SSH only works when:
+
+- Your phone and Mac are on the same local network
+- Or your Mac is publicly exposed (which is risky if done wrong)
+
+Port forwarding my home router felt like a bad idea. I wanted something:
+
+- Secure by default
+- Zero-config
+- Device-only access
+
+That's when I finally gave Tailscale a real try.
+
+#### Step 2: Enter Tailscale (Mesh VPN Magic)
+
+Tailscale creates a private mesh VPN using WireGuard.
+Only devices logged into your account can see and talk to each other.
+
+What I did:
+
+1. Installed Tailscale on my Mac
+2. Installed Tailscale on my iPhone
+3. Logged into the same account on both devices
+4. Enabled Tailscale
+
+Instantly, both devices received private IPs like:
+
+```bash
+100.x.x.x
+```
+
+These IPs are:
+
+- Not public
+- Not reachable by strangers
+- Only accessible inside your Tailscale network
+
+#### Step 3: SSH Over Tailscale
+
+Now the final step was trivial:
+
+1. I replaced my local IP in Termius with the Tailscale IP
+2. Kept SSH key-based authentication
+3. Connected from anywhere — mobile data, public Wi-Fi, anywhere
+
+It just worked.
+
+#### Why This Setup Is So Good
+
+🔐 No open ports
+
+🧠 No router configuration
+
+📱 Works perfectly from phone
+
+🌍 Secure access from anywhere
+
+⚡ Near-zero latency
+
+This is one of those setups that feels obviously correct once you try it.
+
+#### Final Thoughts
+
+SSH was never the hard part.
+Secure networking was.
+
+Tailscale solves that problem so cleanly that it almost feels boring — which is exactly what you want from security tools.
+
+If you haven't tried it yet, this might be the perfect excuse.

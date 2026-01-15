@@ -19,7 +19,8 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    publishedAt: z.iso.date()
+    publishedAt: z.iso.date(),
+    coverImage: z.string().optional()
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {
